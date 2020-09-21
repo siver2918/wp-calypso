@@ -13,13 +13,15 @@ import { getLanguageRouteParam } from 'lib/i18n-utils';
 export default function () {
 	const lang = getLanguageRouteParam();
 
+	const routes = [
+		`/start/${ lang }`,
+		`/start/:flowName/${ lang }`,
+		`/start/:flowName/:stepName/${ lang }`,
+		`/start/:flowName/:stepName/:stepSectionName/${ lang }`,
+	];
+
 	page(
-		[
-			`/start/${ lang }`,
-			`/start/:flowName/${ lang }`,
-			`/start/:flowName/:stepName/${ lang }`,
-			`/start/:flowName/:stepName/:stepSectionName/${ lang }`,
-		],
+		routes,
 		controller.redirectTests,
 		controller.saveInitialContext,
 		controller.redirectWithoutLocaleIfLoggedIn,
@@ -27,6 +29,9 @@ export default function () {
 		controller.start,
 		controller.importSiteInfoFromQuery,
 		makeLayout,
-		clientRender
+		clientRender,
+		controller.notifyLoaded
 	);
+
+	page.exit( routes, controller.notifyUnloaded );
 }

@@ -89,6 +89,22 @@ export const removeP2SignupClassName = function () {
 	document.body.classList.remove( 'is-p2-signup' );
 };
 
+const addIsFullyLoadedClass = function () {
+	if ( ! document ) {
+		return;
+	}
+
+	document.body.classList.add( 'is-fully-loaded' );
+};
+
+const removeIsFullyLoadedClass = function () {
+	if ( ! document ) {
+		return;
+	}
+
+	document.body.classList.remove( 'is-fully-loaded' );
+};
+
 export default {
 	redirectTests( context, next ) {
 		if ( context.pathname.indexOf( 'new-launch' ) >= 0 ) {
@@ -365,6 +381,18 @@ export default {
 				} )
 			);
 		}
+
+		next();
+	},
+
+	notifyLoaded( context, next ) {
+		addIsFullyLoadedClass();
+
+		next();
+	},
+
+	notifyUnloaded( context, next ) {
+		removeIsFullyLoadedClass();
 
 		next();
 	},
