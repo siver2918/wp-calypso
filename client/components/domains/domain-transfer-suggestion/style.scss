@@ -3,21 +3,21 @@
 	align-items: center;
 
 	& .button.domain-suggestion__action.is-borderless {
-	  flex: 1 0 auto;
-	  font-size: $font-body-small;
-	  text-align: left;
-	  width: 100%;
+		flex: 1 0 auto;
+		font-size: $font-body-small;
+		text-align: left;
+		width: 100%;
 
-	  .is-section-signup & {
-		  @include breakpoint-deprecated( '>480px' ) {
-		  	width: auto;
-		  }
+		.is-section-signup.is-fully-loaded & {
+			@include breakpoint-deprecated( '>480px' ) {
+				width: auto;
+			}
 		}
 
 		.is-section-domains & {
 			@include breakpoint-deprecated( '>800px' ) {
-		  	width: auto;
-		  }
+				width: auto;
+			}
 		}
 	}
 }

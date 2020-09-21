@@ -9,7 +9,7 @@
 
 	// Move the filter so its "inside" the
 	// search input
-	body.is-section-signup & {
+	body.is-section-signup.is-fully-loaded & {
 		position: absolute;
 		top: 0;
 		right: 0;

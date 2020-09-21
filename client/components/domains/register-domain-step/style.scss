@@ -1,4 +1,3 @@
-
 .register-domain-step__search {
 	padding-bottom: 12px;
 
@@ -25,7 +24,7 @@
 		}
 
 		// Add some padding to account for the filter button.
-		body.is-section-signup & {
+		body.is-section-signup.is-fully-loaded & {
 			padding-right: 72px;
 		}
 	}
@@ -72,7 +71,8 @@
 	border-radius: 0;
 
 	// from components/card/style.scss
-	box-shadow: 0 0 0 1px rgba( var( --color-neutral-10-rgb ), 0.5 ), 0 1px 2px var( --color-neutral-0 );
+	box-shadow: 0 0 0 1px rgba( var( --color-neutral-10-rgb ), 0.5 ),
+		0 1px 2px var( --color-neutral-0 );
 
 	// from components/domains/domain-suggestion/style
 	// NOTE: easeOutExpo easing function from http://easings.net/#easeOutExpo

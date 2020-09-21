@@ -6,12 +6,12 @@
 	text-align: center;
 }
 
-.is-section-signup .translator-invite__content,
-.is-section-signup .translator-invite__content a {
+.is-section-signup.is-fully-loaded .translator-invite__content,
+.is-section-signup.is-fully-loaded .translator-invite__content a {
 	color: var( --color-text-inverted );
 }
 
-.is-section-signup .translator-invite__content a {
+.is-section-signup.is-fully-loaded .translator-invite__content a {
 	text-decoration: underline;
 }
 

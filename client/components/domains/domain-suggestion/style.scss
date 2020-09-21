@@ -9,7 +9,7 @@
 		padding: 15px 20px;
 	}
 
-	.is-section-signup & {
+	.is-section-signup.is-fully-loaded & {
 		@include breakpoint-deprecated( '>480px' ) {
 			flex-direction: row;
 			align-items: center;
@@ -168,7 +168,7 @@
 		justify-content: center;
 	}
 
-	body.is-section-signup .layout:not( .dops ) & {
+	body.is-section-signup.is-fully-loaded .layout:not( .dops ) & {
 		.domain-registration-suggestion__hsts-tooltip {
 			padding: 0;
 		}
@@ -215,7 +215,7 @@
 		padding: 0;
 	}
 
-	.is-section-signup & {
+	.is-section-signup.is-fully-loaded & {
 		@include breakpoint-deprecated( '>480px' ) {
 			flex: 1 0 auto;
 			margin-left: 1em;
@@ -243,7 +243,7 @@
 		color: var( --color-neutral-0 );
 	}
 
-	.is-section-signup & {
+	.is-section-signup.is-fully-loaded & {
 		@include breakpoint-deprecated( '>480px' ) {
 			display: block;
 		}
@@ -256,7 +256,7 @@
 	}
 }
 
-body.is-section-signup.is-white-signup {
+body.is-section-signup.is-fully-loaded.is-white-signup {
 	.featured-domain-suggestions {
 		.domain-registration-suggestion__title {
 			font-size: $font-title-medium;
@@ -271,7 +271,6 @@ body.is-section-signup.is-white-signup {
 	}
 
 	.domain-suggestion {
-
 		.domain-product-price__free-text {
 			color: var( --color-neutral-60 );
 			font-size: $font-body;
@@ -286,7 +285,6 @@ body.is-section-signup.is-white-signup {
 		}
 
 		&:not( .featured-domain-suggestion ) {
-
 			.domain-registration-suggestion__domain-title {
 				line-height: 3rem;
 				.domain-registration-suggestion__domain-title-tld {

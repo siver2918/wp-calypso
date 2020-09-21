@@ -54,7 +54,7 @@
 	margin-top: 16px;
 	text-align: center;
 
-	body.is-section-signup & {
+	body.is-section-signup.is-fully-loaded & {
 		color: var( --color-text-inverted );
 	}
 }
@@ -100,7 +100,7 @@
 			border-bottom: none;
 		}
 
-		body.is-section-signup & {
+		body.is-section-signup.is-fully-loaded & {
 			color: var( --color-text-inverted );
 		}
 	}

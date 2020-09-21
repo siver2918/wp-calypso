@@ -24,7 +24,7 @@
 	}
 }
 
-.layout.is-section-signup {
+.layout.is-section-signup.is-fully-loaded {
 	.woocommerce-connect-cart-header__stepper-step-icon {
 		margin-top: 4px;
 	}
@@ -47,7 +47,7 @@
 .woocommerce-connect-cart-header__stepper-steps {
 	margin: 0;
 	display: flex;
-    justify-content: space-around;
+	justify-content: space-around;
 }
 
 .woocommerce-connect-cart-header__stepper-step {
@@ -71,13 +71,16 @@
 	border-radius: 50%;
 }
 
-.woocommerce-connect-cart-header__stepper-step.is-active .woocommerce-connect-cart-header__stepper-step-icon,
-.woocommerce-connect-cart-header__stepper-step.is-complete .woocommerce-connect-cart-header__stepper-step-icon {
+.woocommerce-connect-cart-header__stepper-step.is-active
+	.woocommerce-connect-cart-header__stepper-step-icon,
+.woocommerce-connect-cart-header__stepper-step.is-complete
+	.woocommerce-connect-cart-header__stepper-step-icon {
 	background: var( --studio-woocommerce-purple-60 );
 	color: var( --color-text-inverted );
 }
 
-.woocommerce-connect-cart-header__stepper-step.is-complete .woocommerce-connect-cart-header__stepper-step-number {
+.woocommerce-connect-cart-header__stepper-step.is-complete
+	.woocommerce-connect-cart-header__stepper-step-number {
 	display: none;
 }
 
@@ -89,7 +92,8 @@
 	display: inline;
 }
 
-.woocommerce-connect-cart-header__stepper-step .woocommerce-connect-cart-header__stepper-step-label {
+.woocommerce-connect-cart-header__stepper-step
+	.woocommerce-connect-cart-header__stepper-step-label {
 	color: var( --studio-gray-90 );
 	line-height: 24px;
 	font-size: $font-body;
@@ -100,10 +104,12 @@
 	}
 }
 
-.woocommerce-connect-cart-header__stepper-step .woocommerce-connect-cart-header__stepper-step-label {
+.woocommerce-connect-cart-header__stepper-step
+	.woocommerce-connect-cart-header__stepper-step-label {
 	color: var( --studio-gray-80 );
 }
-.woocommerce-connect-cart-header__stepper-step.is-complete .woocommerce-connect-cart-header__stepper-step-label {
+.woocommerce-connect-cart-header__stepper-step.is-complete
+	.woocommerce-connect-cart-header__stepper-step-label {
 	color: var( --studio-gray-90 );
 }
 

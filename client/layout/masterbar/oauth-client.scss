@@ -692,8 +692,8 @@
 		margin-left: 6px;
 	}
 
-	&.is-section-signup::before,
-	&.is-section-signup .layout__primary::before {
+	&.is-section-signup.is-fully-loaded::before,
+	&.is-section-signup.is-fully-loaded .layout__primary::before {
 		display: none;
 	}
 

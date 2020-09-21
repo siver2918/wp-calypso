@@ -98,7 +98,7 @@
 	text-align: center;
 	color: var( --color-text );
 
-	body.is-section-signup & {
+	body.is-section-signup.is-fully-loaded & {
 		color: var( --color-text-inverted );
 
 		a {

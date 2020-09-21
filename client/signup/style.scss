@@ -1,6 +1,6 @@
 @import '~@automattic/onboarding/styles/mixins';
 
-body.is-section-signup {
+body.is-section-signup.is-fully-loaded {
 	// Use WordPress.com’s brand color for the signup background
 	background: var( --color-wordpress-com );
 
@@ -84,8 +84,8 @@ body.is-section-signup {
 
 // Notice the :not(.dops) selector. I've added this to try and
 // avoid stepping on the toes of our oauth users, like Crowdsignal.
-body.is-section-signup .layout:not( .dops ),
-body.is-section-signup .layout.gravatar {
+body.is-section-signup.is-fully-loaded .layout:not( .dops ),
+body.is-section-signup.is-fully-loaded .layout.gravatar {
 	// Update the logo that appears when loading Calypso
 	// to match the homepage, using primary-dark with opacity.
 	.wpcom-site__logo {
@@ -151,7 +151,7 @@ body.is-section-signup .layout.gravatar {
 
 // The container wrapped around every
 // step in signup
-body.is-section-signup .layout:not( .dops ) .step-wrapper {
+body.is-section-signup.is-fully-loaded .layout:not( .dops ) .step-wrapper {
 	max-width: 960px;
 	margin: 0 auto;
 
@@ -177,8 +177,10 @@ body.is-section-signup .layout:not( .dops ) .step-wrapper {
 }
 
 // Signup headings
-body.is-section-signup .layout:not( .dops ):not( .is-wccom-oauth-flow ) .formatted-header,
-body.is-section-signup .layout.gravatar .formatted-header {
+body.is-section-signup.is-fully-loaded
+	.layout:not( .dops ):not( .is-wccom-oauth-flow )
+	.formatted-header,
+body.is-section-signup.is-fully-loaded .layout.gravatar .formatted-header {
 	margin: 0 0 16px;
 
 	.formatted-header__title {
@@ -209,8 +211,8 @@ body.is-section-signup .layout.gravatar .formatted-header {
 	margin-bottom: 20px;
 }
 
-.is-section-signup .layout__content,
-.is-section-signup .layout__primary {
+.is-section-signup.is-fully-loaded .layout__content,
+.is-section-signup.is-fully-loaded .layout__primary {
 	overflow: visible;
 }
 
@@ -346,7 +348,7 @@ body.is-section-signup .layout.gravatar .formatted-header {
 }
 
 // Background color and plans grid overrides for new flow
-body.is-section-signup.is-new-launch-flow {
+body.is-section-signup.is-fully-loaded.is-new-launch-flow {
 	background: var( --color-white );
 
 	.signup-header {
@@ -419,7 +421,8 @@ body.is-section-signup.is-new-launch-flow {
 }
 
 // Text and heading color override for new flow
-body.is-section-signup.is-new-launch-flow .layout:not( .dops ):not( .is-wccom-oauth-flow ) {
+body.is-section-signup.is-fully-loaded.is-new-launch-flow
+	.layout:not( .dops ):not( .is-wccom-oauth-flow ) {
 	&.gravatar .formatted-header,
 	.formatted-header {
 		.formatted-header__title {
@@ -447,7 +450,7 @@ body.is-section-signup.is-new-launch-flow .layout:not( .dops ):not( .is-wccom-oa
 /**
  * Common styles for reskinSignupFlow a/b test
  */
-body.is-section-signup.is-white-signup .signup.is-onboarding {
+body.is-section-signup.is-fully-loaded.is-white-signup .signup.is-onboarding {
 	$gray-100: #101517;
 	$gray-60: #50575e;
 	$gray-50: #646970;
@@ -467,7 +470,7 @@ body.is-section-signup.is-white-signup .signup.is-onboarding {
 		.signup-header__right {
 			top: 22px;
 			right: 24px;
-			
+
 			.flow-progress-indicator {
 				color: var( --color-text );
 				font-weight: normal;

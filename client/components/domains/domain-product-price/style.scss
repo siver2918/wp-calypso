@@ -20,7 +20,7 @@
 		}
 	}
 
-	.is-section-signup &:not( .domain-product-price__domain-step-copy-updates ) {
+	.is-section-signup.is-fully-loaded &:not( .domain-product-price__domain-step-copy-updates ) {
 		@include breakpoint-deprecated( '>660px' ) {
 			padding-left: 1em;
 			padding-right: 2em;

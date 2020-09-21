@@ -1,4 +1,4 @@
-body.is-section-signup .layout .signup.is-crowdsignal .step-wrapper {
+body.is-section-signup.is-fully-loaded .layout .signup.is-crowdsignal .step-wrapper {
 	@include breakpoint-deprecated( '>1040px' ) {
 		margin: 0 auto;
 		max-width: 1100px;
@@ -6,7 +6,7 @@ body.is-section-signup .layout .signup.is-crowdsignal .step-wrapper {
 	}
 }
 
-.is-section-signup.crowdsignal {
+.is-section-signup.is-fully-loaded.crowdsignal {
 	min-height: calc( 100% - 58px );
 	padding-bottom: 58px;
 	position: relative;
@@ -60,7 +60,7 @@ body.is-section-signup .layout .signup.is-crowdsignal .step-wrapper {
 
 	@include breakpoint-deprecated( '>660px' ) {
 		background-color: var( --color-surface );
-	    box-shadow: 0 2px 3px 0 var( --color-neutral-10 );
+		box-shadow: 0 2px 3px 0 var( --color-neutral-10 );
 		display: block;
 		margin: 0 auto;
 		padding: 35px 55px;
@@ -296,9 +296,9 @@ body.is-section-signup .layout .signup.is-crowdsignal .step-wrapper {
 	height: 58px;
 	padding: 20px 40px;
 	position: absolute;
-		bottom: 0;
-		left: 0;
-		right: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
 }
 
 .signup-form__crowdsignal-footer-text {
