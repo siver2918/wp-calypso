@@ -2,7 +2,6 @@
 // ==========================================================================
 // Global form elements
 // ==========================================================================
-input[type='text'],
 input[type='email'],
 textarea {
 	@extend %form-field;
@@ -12,7 +11,6 @@ textarea {
 	border-radius: 2px;
 }
 
-input[type='text'],
 input[type='email'],
 textarea,
 label {
