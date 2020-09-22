@@ -14,6 +14,106 @@ function getModule( request ) {
 	return parts[ 0 ];
 }
 
+function includesPackage( pkgList, pkgName ) {
+	return pkgList.find( ( p ) => p.name === pkgName );
+}
+
+function dependencyNamesOfType( depList, type ) {
+	return depList.filter( ( dep ) => dep.type === type ).map( ( dep ) => dep.name );
+}
+
+function completeDependencies( packageList ) {
+	const visitedFolders = new Set();
+
+	function processPackageDependencies( pkg, contexts ) {
+		const packageFolder = contexts[ 0 ] + '/' + pkg.name;
+
+		// read module's package.json
+		const packageJson = JSON.parse( fs.readFileSync( packageFolder + '/package.json' ) );
+
+		// collect dependencies from various fields
+		const packageDependencies = [
+			'dependencies',
+			'peerDependencies',
+			'optionalDependencies',
+		].flatMap( ( type ) =>
+			Object.keys( packageJson[ type ] || {} ).map( ( name ) => ( { name, type } ) )
+		);
+
+		// bail out if package has no dependencies
+		if ( ! packageDependencies.length ) {
+			return;
+		}
+
+		const peers = dependencyNamesOfType( packageDependencies, 'peerDependencies' );
+		if ( peers.length ) {
+			console.log( 'Package ' + pkg.name + ' has peer deps:', peers );
+		}
+
+		const opts = dependencyNamesOfType( packageDependencies, 'optionalDependencies' );
+		if ( opts.length ) {
+			console.log( 'Package ' + pkg.name + ' has optional deps:', opts );
+		}
+
+		// unshift the module's nested node_modules to contexts
+		contexts = [ packageFolder + '/node_modules', ...contexts ];
+
+		// iterate its dependencies
+		for ( const dependency of packageDependencies ) {
+			// find the dependency in node_modules tree
+			const foundContextIdx = contexts.findIndex( ( context ) =>
+				fs.existsSync( context + '/' + dependency.name )
+			);
+
+			if ( foundContextIdx === -1 ) {
+				console.error( 'Package ' + dependency.name + ' not found' );
+				return;
+			}
+
+			const dependencyFolder = contexts[ foundContextIdx ] + '/' + dependency.name;
+
+			// skip if the folder was already visited
+			if ( visitedFolders.has( dependencyFolder ) ) {
+				continue;
+			}
+
+			// mark the folder as visited
+			visitedFolders.add( dependencyFolder );
+
+			// Collect as external to be shipped if it's top-level.
+			// Subpackages are already shipped together with the parent.
+			if (
+				foundContextIdx === contexts.length - 1 &&
+				! includesPackage( packageList, dependency.name )
+			) {
+				console.log(
+					'adding to node_modules because required by ' + pkg.name + ':',
+					dependency.name
+				);
+				packageList.push( dependency );
+			}
+
+			// recursively collect dependencies
+			processPackageDependencies( dependency, contexts.slice( foundContextIdx ) );
+		}
+	}
+
+	// the packageList grows as the loop iterates. Process only the original elements
+	const packageListLength = packageList.length;
+	for ( let i = 0; i < packageListLength; i++ ) {
+		processPackageDependencies( packageList[ i ], [ 'node_modules' ] );
+	}
+}
+
+function shipDependencies( packageList ) {
+	const destDir = 'build/node_modules';
+	mkdirp( destDir );
+	for ( const pkg of packageList ) {
+		console.log( 'Copying:', pkg.name );
+		rcopy( 'node_modules/' + pkg.name, destDir + '/' + pkg.name, { overwrite: true } );
+	}
+}
+
 module.exports = class NodeModuler {
 	apply( compiler ) {
 		compiler.hooks.afterEmit.tapAsync( 'NodeModuler', ( compilation ) => {
@@ -32,79 +132,22 @@ module.exports = class NodeModuler {
 						continue;
 					}
 
-					if ( ! externalModules.includes( requestModule ) ) {
+					if ( ! includesPackage( externalModules, requestModule ) ) {
 						console.log( 'adding to node_modules because required by bundle:', requestModule );
-						externalModules.push( requestModule );
+						externalModules.push( { type: 'bundle', name: requestModule } );
 					}
 				}
 			}
 
-			const visitedFolders = new Set();
+			console.log( 'Bundle directly requests ' + externalModules.length + ' packages' );
 
-			function collectDependencies( mod, contexts ) {
-				console.log( 'collecting', mod, contexts );
-				const modFolder = contexts[ 0 ] + '/' + mod;
-
-				// read module's package.json
-				const pkg = JSON.parse( fs.readFileSync( modFolder + '/package.json' ) );
-
-				// bail out if package has no dependencies
-				if ( ! pkg.dependencies ) {
-					console.log( 'Package ' + mod + ' has no dependencies, skipping' );
-					return;
-				}
-
-				// unshift the module's nested node_modules to contexts
-				contexts = [ modFolder + '/node_modules', ...contexts ];
-
-				// iterate its dependencies
-				for ( const dep of Object.keys( pkg.dependencies ) ) {
-					// find the dependency in node_modules tree
-					const foundContextIdx = contexts.findIndex( ( context ) =>
-						fs.existsSync( context + '/' + dep )
-					);
-
-					if ( foundContextIdx === -1 ) {
-						console.error( 'Package ' + dep + ' not found' );
-						return;
-					}
-
-					const depFolder = contexts[ foundContextIdx ] + '/' + dep;
-
-					// skip if the folder was already visited
-					if ( visitedFolders.has( depFolder ) ) {
-						continue;
-					}
-
-					// mark the folder as visited
-					visitedFolders.add( depFolder );
-
-					// collect as external to be shipped if it's top-level
-					if ( foundContextIdx === contexts.length - 1 ) {
-						if ( ! externalModules.includes( dep ) ) {
-							console.log( 'adding to node_modules because required by ' + mod + ':', dep );
-							externalModules.push( dep );
-						}
-					} else {
-						console.log( 'subpackage ' + depFolder + ' already shipping thanks to parent' );
-					}
-
-					// recursively collect dependencies
-					collectDependencies( dep, contexts.slice( foundContextIdx ) );
-				}
-			}
-
-			for ( let i = 0; i < externalModules.length; i++ ) {
-				collectDependencies( externalModules[ i ], [ 'node_modules' ] );
-			}
+			completeDependencies( externalModules );
 
 			console.log( 'Shipping ' + externalModules.length + ' packages to build/ folder' );
-			const shipDir = 'build/node_modules';
-			mkdirp( shipDir );
-			for ( const mod of externalModules ) {
-				console.log( 'Copying:', mod );
-				rcopy( 'node_modules/' + mod, shipDir + '/' + mod, { overwrite: true } );
-			}
+			console.log( 'Optionals:', dependencyNamesOfType( externalModules, 'optionalDependencies' ) );
+			console.log( 'Peers:', dependencyNamesOfType( externalModules, 'peerDependencies' ) );
+
+			shipDependencies( externalModules );
 		} );
 	}
 };
