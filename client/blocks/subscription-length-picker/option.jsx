@@ -12,8 +12,8 @@ import { localize } from 'i18n-calypso';
  * Internal dependencies
  */
 
-import Badge from 'components/badge';
-import { TERM_ANNUALLY, TERM_BIENNIALLY, TERM_MONTHLY } from 'lib/plans/constants';
+import Badge from 'calypso/components/badge';
+import { TERM_ANNUALLY, TERM_BIENNIALLY, TERM_MONTHLY } from 'calypso/lib/plans/constants';
 import FormRadio from 'calypso/components/forms/form-radio';
 
 const TYPE_NEW_SALE = 'new-sale';

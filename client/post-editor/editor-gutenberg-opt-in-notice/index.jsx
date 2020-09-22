@@ -10,13 +10,13 @@ import { localize } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import Notice from 'components/notice';
-import NoticeAction from 'components/notice/notice-action';
-import { showGutenbergOptInDialog } from 'state/ui/gutenberg-opt-in-dialog/actions';
-import { getSelectedSiteId } from 'state/ui/selectors';
-import { savePreference } from 'state/preferences/actions';
-import { getPreference } from 'state/preferences/selectors';
-import isGutenbergOptInEnabled from 'state/selectors/is-gutenberg-opt-in-enabled';
+import Notice from 'calypso/components/notice';
+import NoticeAction from 'calypso/components/notice/notice-action';
+import { showGutenbergOptInDialog } from 'calypso/state/ui/gutenberg-opt-in-dialog/actions';
+import { getSelectedSiteId } from 'calypso/state/ui/selectors';
+import { savePreference } from 'calypso/state/preferences/actions';
+import { getPreference } from 'calypso/state/preferences/selectors';
+import isGutenbergOptInEnabled from 'calypso/state/selectors/is-gutenberg-opt-in-enabled';
 
 /**
  * Style dependencies

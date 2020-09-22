@@ -15,9 +15,9 @@ import PropTypes from 'prop-types';
 /**
  * Internal dependencies
  */
-import { isSidebarSectionOpen } from 'state/my-sites/sidebar/selectors';
-import { toggleMySitesSidebarSection as toggleSection } from 'state/my-sites/sidebar/actions';
-import ExpandableSidebarMenu from 'layout/sidebar/expandable';
+import { isSidebarSectionOpen } from 'calypso/state/my-sites/sidebar/selectors';
+import { toggleMySitesSidebarSection as toggleSection } from 'calypso/state/my-sites/sidebar/actions';
+import ExpandableSidebarMenu from 'calypso/layout/sidebar/expandable';
 import MySitesSidebarUnifiedItem from './item';
 
 export const MySitesSidebarUnifiedMenu = ( { slug, title, icon, children, path } ) => {

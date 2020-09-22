@@ -1,7 +1,7 @@
 /**
  * Internal dependencies
  */
-import { GUTENBERG_OPT_IN_DIALOG_IS_SHOWING } from 'state/action-types';
+import { GUTENBERG_OPT_IN_DIALOG_IS_SHOWING } from 'calypso/state/action-types';
 
 export function showGutenbergOptInDialog() {
 	return {

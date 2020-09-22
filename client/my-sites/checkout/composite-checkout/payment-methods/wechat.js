@@ -22,15 +22,15 @@ import {
 /**
  * Internal dependencies
  */
-import { PaymentMethodLogos } from 'my-sites/checkout/composite-checkout/components/payment-method-logos';
-import Field from 'my-sites/checkout/composite-checkout/components/field';
+import { PaymentMethodLogos } from 'calypso/my-sites/checkout/composite-checkout/components/payment-method-logos';
+import Field from 'calypso/my-sites/checkout/composite-checkout/components/field';
 import {
 	SummaryLine,
 	SummaryDetails,
-} from 'my-sites/checkout/composite-checkout/components/summary-details';
-import WeChatPaymentQRcode from 'my-sites/checkout/checkout/wechat-payment-qrcode';
-import { useCart } from 'my-sites/checkout/composite-checkout/cart-provider';
-import userAgent from 'lib/user-agent';
+} from 'calypso/my-sites/checkout/composite-checkout/components/summary-details';
+import WeChatPaymentQRcode from 'calypso/my-sites/checkout/checkout/wechat-payment-qrcode';
+import { useCart } from 'calypso/my-sites/checkout/composite-checkout/cart-provider';
+import userAgent from 'calypso/lib/user-agent';
 
 const debug = debugFactory( 'calypso:composite-checkout:wechat-payment-method' );
 

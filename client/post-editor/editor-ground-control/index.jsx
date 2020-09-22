@@ -6,24 +6,24 @@ import PropTypes from 'prop-types';
 import { identity, noop, get, findLast } from 'lodash';
 import page from 'page';
 import { localize } from 'i18n-calypso';
-import Gridicon from 'components/gridicon';
+import Gridicon from 'calypso/components/gridicon';
 import { connect } from 'react-redux';
 
 /**
  * Internal dependencies
  */
 import { Card, Button } from '@automattic/components';
-import Site from 'blocks/site';
-import EditorPublishButton from 'post-editor/editor-publish-button';
-import QuickSaveButtons from 'post-editor/editor-ground-control/quick-save-buttons';
-import Drafts from 'layout/masterbar/drafts';
-import { recordTracksEvent } from 'state/analytics/actions';
-import { getEditorPublishButtonStatus } from 'state/editor/selectors';
-import isUnlaunchedSite from 'state/selectors/is-unlaunched-site';
-import isVipSite from 'state/selectors/is-vip-site';
-import { isCurrentUserEmailVerified } from 'state/current-user/selectors';
-import { getRouteHistory } from 'state/ui/action-log/selectors';
-import { pauseGuidedTour } from 'state/guided-tours/actions';
+import Site from 'calypso/blocks/site';
+import EditorPublishButton from 'calypso/post-editor/editor-publish-button';
+import QuickSaveButtons from 'calypso/post-editor/editor-ground-control/quick-save-buttons';
+import Drafts from 'calypso/layout/masterbar/drafts';
+import { recordTracksEvent } from 'calypso/state/analytics/actions';
+import { getEditorPublishButtonStatus } from 'calypso/state/editor/selectors';
+import isUnlaunchedSite from 'calypso/state/selectors/is-unlaunched-site';
+import isVipSite from 'calypso/state/selectors/is-vip-site';
+import { isCurrentUserEmailVerified } from 'calypso/state/current-user/selectors';
+import { getRouteHistory } from 'calypso/state/ui/action-log/selectors';
+import { pauseGuidedTour } from 'calypso/state/guided-tours/actions';
 
 /**
  * Style dependencies

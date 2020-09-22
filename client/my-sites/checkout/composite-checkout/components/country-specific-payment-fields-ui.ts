@@ -7,7 +7,7 @@ import styled from '@emotion/styled';
 /**
  * Internal dependencies
  */
-import CountrySpecificPaymentFields from 'my-sites/checkout/checkout/country-specific-payment-fields';
+import CountrySpecificPaymentFields from 'calypso/my-sites/checkout/checkout/country-specific-payment-fields';
 
 export type CountrySpecificPaymentFieldsProps = {
 	countryCode: string;

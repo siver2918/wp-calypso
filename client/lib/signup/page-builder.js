@@ -1,10 +1,10 @@
 /**
  * Internal dependencies
  */
-import { abtest, getABTestVariation } from 'lib/abtest';
-import { getLocaleSlug } from 'lib/i18n-utils';
-import { getSectionGroup } from 'state/ui/selectors';
-import { getSiteOption } from 'state/sites/selectors';
+import { abtest, getABTestVariation } from 'calypso/lib/abtest';
+import { getLocaleSlug } from 'calypso/lib/i18n-utils';
+import { getSectionGroup } from 'calypso/state/ui/selectors';
+import { getSiteOption } from 'calypso/state/sites/selectors';
 
 export function isInPageBuilderTest() {
 	return 'test' === getABTestVariation( 'pageBuilderMVP' );

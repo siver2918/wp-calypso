@@ -5,19 +5,19 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { localize } from 'i18n-calypso';
 import PropTypes from 'prop-types';
-import Gridicon from 'components/gridicon';
+import Gridicon from 'calypso/components/gridicon';
 
 /**
  * Internal Dependencies
  */
 import { Button, Card } from '@automattic/components';
-import isUpworkStatsNudgeDismissed from 'state/selectors/is-upwork-stats-nudge-dismissed';
-import QueryPreferences from 'components/data/query-preferences';
-import SectionHeader from 'components/section-header';
+import isUpworkStatsNudgeDismissed from 'calypso/state/selectors/is-upwork-stats-nudge-dismissed';
+import QueryPreferences from 'calypso/components/data/query-preferences';
+import SectionHeader from 'calypso/components/section-header';
 import { dismissNudge } from './actions';
-import { enhanceWithSiteType, recordTracksEvent } from 'state/analytics/actions';
-import { getCurrentPlan } from 'state/sites/plans/selectors';
-import { withEnhancers } from 'state/utils';
+import { enhanceWithSiteType, recordTracksEvent } from 'calypso/state/analytics/actions';
+import { getCurrentPlan } from 'calypso/state/sites/plans/selectors';
+import { withEnhancers } from 'calypso/state/utils';
 
 /**
  * Style dependencies
@@ -27,7 +27,7 @@ import './style.scss';
 /**
  * Image dependencies
  */
-import builderIllustration from 'assets/images/illustrations/builder-referral.svg';
+import builderIllustration from 'calypso/assets/images/illustrations/builder-referral.svg';
 
 class UpworkStatsNudge extends Component {
 	static propTypes = {

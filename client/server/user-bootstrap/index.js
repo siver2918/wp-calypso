@@ -9,9 +9,9 @@ import crypto from 'crypto';
 /**
  * Internal dependencies
  */
-import { filterUserObject } from 'lib/user/shared-utils';
-import { getActiveTestNames } from 'lib/abtest/utility';
-import config from 'config';
+import { filterUserObject } from 'calypso/lib/user/shared-utils';
+import { getActiveTestNames } from 'calypso/lib/abtest/utility';
+import config from 'calypso/config';
 
 const debug = debugFactory( 'calypso:bootstrap' ),
 	AUTH_COOKIE_NAME = 'wordpress_logged_in',

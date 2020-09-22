@@ -6,7 +6,7 @@ import React, { useEffect, useRef } from 'react';
 /**
  * Internal dependencies
  */
-import notices from 'notices';
+import notices from 'calypso/notices';
 
 export default function useDisplayErrors( errorMessages: string[] ) {
 	const previousMessages = useRef< string[] >( [] );

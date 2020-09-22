@@ -8,7 +8,7 @@ import React from 'react';
 /**
  * Internal dependencies
  */
-import InfoPopover from 'components/info-popover';
+import InfoPopover from 'calypso/components/info-popover';
 
 /**
  * Style dependencies

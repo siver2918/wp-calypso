@@ -5,8 +5,8 @@ import { get } from 'lodash';
 /**
  * Internal dependencies
  */
-import { getGoogleApps, hasGoogleApps } from 'lib/cart-values/cart-items';
-import { retrieveSignupDestination } from 'signup/utils';
+import { getGoogleApps, hasGoogleApps } from 'calypso/lib/cart-values/cart-items';
+import { retrieveSignupDestination } from 'calypso/signup/utils';
 
 /**
  * @param {object} state Global state tree

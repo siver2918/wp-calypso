@@ -9,9 +9,9 @@ import { Button } from '@automattic/components';
 /**
  * Internal dependencies
  */
-import { JPC_PATH_REMOTE_INSTALL } from 'jetpack-connect/constants';
-import isJetpackCloud from 'lib/jetpack/is-jetpack-cloud';
-import getJetpackWpAdminUrl from 'state/selectors/get-jetpack-wp-admin-url';
+import { JPC_PATH_REMOTE_INSTALL } from 'calypso/jetpack-connect/constants';
+import isJetpackCloud from 'calypso/lib/jetpack/is-jetpack-cloud';
+import getJetpackWpAdminUrl from 'calypso/state/selectors/get-jetpack-wp-admin-url';
 
 /**
  * Style dependencies

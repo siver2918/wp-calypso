@@ -1,11 +1,11 @@
 /**
  * Internal dependencies
  */
-import { shouldRedirectGutenberg } from 'state/selectors/should-redirect-gutenberg';
-import { getSelectedEditor } from 'state/selectors/get-selected-editor';
-import { getSiteAdminUrl, getSiteSlug } from 'state/sites/selectors';
-import { getEditorPath } from 'state/editor/selectors';
-import { addQueryArgs } from 'lib/route';
+import { shouldRedirectGutenberg } from 'calypso/state/selectors/should-redirect-gutenberg';
+import { getSelectedEditor } from 'calypso/state/selectors/get-selected-editor';
+import { getSiteAdminUrl, getSiteSlug } from 'calypso/state/sites/selectors';
+import { getEditorPath } from 'calypso/state/editor/selectors';
+import { addQueryArgs } from 'calypso/lib/route';
 
 export const getGutenbergEditorUrl = ( state, siteId, postId = null, postType = 'post' ) => {
 	if ( shouldRedirectGutenberg( state, siteId ) ) {

@@ -6,7 +6,7 @@ import photon from 'photon';
 /**
  * Internal dependencies
  */
-import { getUrlParts } from 'lib/url/url-parts';
+import { getUrlParts } from 'calypso/lib/url/url-parts';
 
 /**
  * Pattern matching URLs to be left unmodified.

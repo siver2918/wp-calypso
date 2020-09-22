@@ -1,7 +1,7 @@
 /**
  * Internal dependencies
  */
-import { getPreference } from 'state/preferences/selectors';
+import { getPreference } from 'calypso/state/preferences/selectors';
 
 /**
  * Returns the number of times the current user dismissed the nudge

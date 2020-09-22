@@ -1,7 +1,7 @@
 /**
  * Internal dependencies
  */
-import { combineReducers, withSchemaValidation } from 'state/utils';
+import { combineReducers, withSchemaValidation } from 'calypso/state/utils';
 import sidebar from './sidebar/reducer';
 
 const schema = {

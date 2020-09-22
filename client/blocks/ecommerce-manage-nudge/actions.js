@@ -1,9 +1,9 @@
 /**
  * Internal Dependencies
  */
-import { getPreference } from 'state/preferences/selectors';
-import { getSelectedSiteId } from 'state/ui/selectors';
-import { savePreference } from 'state/preferences/actions';
+import { getPreference } from 'calypso/state/preferences/selectors';
+import { getSelectedSiteId } from 'calypso/state/ui/selectors';
+import { savePreference } from 'calypso/state/preferences/actions';
 
 export const dismissNudge = () => ( dispatch, getState ) => {
 	const siteId = getSelectedSiteId( getState() );

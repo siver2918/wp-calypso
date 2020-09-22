@@ -10,12 +10,12 @@ import { localize } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import { getEditedPost } from 'state/posts/selectors';
-import { getPostType } from 'state/post-types/selectors';
-import { getEditorPostId } from 'state/editor/selectors';
-import { getSelectedSiteId } from 'state/ui/selectors';
-import { decodeEntities } from 'lib/formatting';
-import QueryPostTypes from 'components/data/query-post-types';
+import { getEditedPost } from 'calypso/state/posts/selectors';
+import { getPostType } from 'calypso/state/post-types/selectors';
+import { getEditorPostId } from 'calypso/state/editor/selectors';
+import { getSelectedSiteId } from 'calypso/state/ui/selectors';
+import { decodeEntities } from 'calypso/lib/formatting';
+import QueryPostTypes from 'calypso/components/data/query-post-types';
 
 function EditorStatusLabelPlaceholder( { translate, siteId, typeSlug, type, className } ) {
 	const classes = classnames( 'editor-status-label__placeholder', className );

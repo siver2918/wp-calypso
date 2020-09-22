@@ -11,9 +11,9 @@ import { localize } from 'i18n-calypso';
  * Internal dependencies
  */
 import { Button } from '@automattic/components';
-import { showGutenbergOptInDialog } from 'state/ui/gutenberg-opt-in-dialog/actions';
-import { getSelectedSiteId } from 'state/ui/selectors';
-import isGutenbergOptInEnabled from 'state/selectors/is-gutenberg-opt-in-enabled';
+import { showGutenbergOptInDialog } from 'calypso/state/ui/gutenberg-opt-in-dialog/actions';
+import { getSelectedSiteId } from 'calypso/state/ui/selectors';
+import isGutenbergOptInEnabled from 'calypso/state/selectors/is-gutenberg-opt-in-enabled';
 
 /**
  * Style dependencies

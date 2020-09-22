@@ -7,10 +7,10 @@ import { useTranslate } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import ExternalLink from 'components/external-link';
-import JetpackLogo from 'components/jetpack-logo';
-import SocialLogo from 'components/social-logo';
-import StoreFooter from 'jetpack-connect/store-footer';
+import ExternalLink from 'calypso/components/external-link';
+import JetpackLogo from 'calypso/components/jetpack-logo';
+import SocialLogo from 'calypso/components/social-logo';
+import StoreFooter from 'calypso/jetpack-connect/store-footer';
 
 /**
  * Style dependencies

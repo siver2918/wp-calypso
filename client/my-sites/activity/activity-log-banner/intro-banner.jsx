@@ -10,21 +10,21 @@ import { localize } from 'i18n-calypso';
  * Internal dependencies
  */
 import { Button } from '@automattic/components';
-import CardHeading from 'components/card-heading';
-import DismissibleCard from 'blocks/dismissible-card';
-import ExternalLink from 'components/external-link';
-import QuerySitePurchases from 'components/data/query-site-purchases';
+import CardHeading from 'calypso/components/card-heading';
+import DismissibleCard from 'calypso/blocks/dismissible-card';
+import ExternalLink from 'calypso/components/external-link';
+import QuerySitePurchases from 'calypso/components/data/query-site-purchases';
 import {
 	FEATURE_JETPACK_ESSENTIAL,
 	FEATURE_OFFSITE_BACKUP_VAULTPRESS_DAILY,
 	PLAN_JETPACK_PERSONAL_MONTHLY,
 	PLAN_PERSONAL,
-} from 'lib/plans/constants';
-import { getCurrentPlan } from 'state/sites/plans/selectors';
-import { getSiteSlug, isJetpackSite } from 'state/sites/selectors';
-import { isFreePlan } from 'lib/plans';
-import { recordTracksEvent } from 'state/analytics/actions';
-import { siteHasBackupProductPurchase } from 'state/purchases/selectors';
+} from 'calypso/lib/plans/constants';
+import { getCurrentPlan } from 'calypso/state/sites/plans/selectors';
+import { getSiteSlug, isJetpackSite } from 'calypso/state/sites/selectors';
+import { isFreePlan } from 'calypso/lib/plans';
+import { recordTracksEvent } from 'calypso/state/analytics/actions';
+import { siteHasBackupProductPurchase } from 'calypso/state/purchases/selectors';
 
 /**
  * Style dependencies
@@ -34,7 +34,7 @@ import './intro-banner.scss';
 /**
  * Image dependencies
  */
-import activityImage from 'assets/images/illustrations/site-activity.svg';
+import activityImage from 'calypso/assets/images/illustrations/site-activity.svg';
 
 class IntroBanner extends Component {
 	recordLearnMore = () =>

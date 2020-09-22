@@ -3,7 +3,7 @@
  */
 import i18n from 'i18n-calypso';
 import { get } from 'lodash';
-import { withoutHttp } from 'lib/url';
+import { withoutHttp } from 'calypso/lib/url';
 
 export function userCan( capability, site ) {
 	return site && site.capabilities && site.capabilities[ capability ];

@@ -16,7 +16,7 @@ import ReactDom from 'react-dom';
  */
 import { EditorDiscussion } from '../';
 
-jest.mock( 'components/info-popover', () => require( 'components/empty-component' ) );
+jest.mock( 'components/info-popover', () => require( 'calypso/components/empty-component' ) );
 
 /**
  * Module variables

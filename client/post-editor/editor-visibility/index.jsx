@@ -5,26 +5,26 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { find, get } from 'lodash';
 import classNames from 'classnames';
-import Gridicon from 'components/gridicon';
+import Gridicon from 'calypso/components/gridicon';
 import { connect } from 'react-redux';
 import { localize } from 'i18n-calypso';
 
 /**
  * Internal dependencies
  */
-import FormFieldset from 'components/forms/form-fieldset';
-import FormInputValidation from 'components/forms/form-input-validation';
-import FormTextInput from 'components/forms/form-text-input';
-import SelectDropdown from 'components/select-dropdown';
-import { hasTouch } from 'lib/touch-detect';
-import { recordEditorEvent, recordEditorStat } from 'state/posts/stats';
-import { recordTracksEvent } from 'state/analytics/actions';
-import accept from 'lib/accept';
-import { editPost } from 'state/posts/actions';
-import { getEditedPost, getSitePost } from 'state/posts/selectors';
-import { getSelectedSiteId } from 'state/ui/selectors';
-import { getEditorPostId } from 'state/editor/selectors';
-import isPrivateSiteSelector from 'state/selectors/is-private-site';
+import FormFieldset from 'calypso/components/forms/form-fieldset';
+import FormInputValidation from 'calypso/components/forms/form-input-validation';
+import FormTextInput from 'calypso/components/forms/form-text-input';
+import SelectDropdown from 'calypso/components/select-dropdown';
+import { hasTouch } from 'calypso/lib/touch-detect';
+import { recordEditorEvent, recordEditorStat } from 'calypso/state/posts/stats';
+import { recordTracksEvent } from 'calypso/state/analytics/actions';
+import accept from 'calypso/lib/accept';
+import { editPost } from 'calypso/state/posts/actions';
+import { getEditedPost, getSitePost } from 'calypso/state/posts/selectors';
+import { getSelectedSiteId } from 'calypso/state/ui/selectors';
+import { getEditorPostId } from 'calypso/state/editor/selectors';
+import isPrivateSiteSelector from 'calypso/state/selectors/is-private-site';
 
 /**
  * Style dependencies

@@ -11,16 +11,16 @@ import { get, toArray, unescape as unescapeString } from 'lodash';
 /**
  * Internal dependencies
  */
-import Accordion from 'components/accordion';
-import AccordionSection from 'components/accordion/section';
-import EditorDrawerLabel from 'post-editor/editor-drawer/label';
-import TermSelector from 'post-editor/editor-term-selector';
-import TermTokenField from 'post-editor/term-token-field';
-import { getSelectedSiteId } from 'state/ui/selectors';
-import { getEditorPostId } from 'state/editor/selectors';
-import { getEditedPostValue } from 'state/posts/selectors';
-import { getSiteOption } from 'state/sites/selectors';
-import { getTerm } from 'state/terms/selectors';
+import Accordion from 'calypso/components/accordion';
+import AccordionSection from 'calypso/components/accordion/section';
+import EditorDrawerLabel from 'calypso/post-editor/editor-drawer/label';
+import TermSelector from 'calypso/post-editor/editor-term-selector';
+import TermTokenField from 'calypso/post-editor/term-token-field';
+import { getSelectedSiteId } from 'calypso/state/ui/selectors';
+import { getEditorPostId } from 'calypso/state/editor/selectors';
+import { getEditedPostValue } from 'calypso/state/posts/selectors';
+import { getSiteOption } from 'calypso/state/sites/selectors';
+import { getTerm } from 'calypso/state/terms/selectors';
 
 /**
  * Style dependencies

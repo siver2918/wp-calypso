@@ -6,18 +6,18 @@ import { localize } from 'i18n-calypso';
 import React, { Fragment } from 'react';
 import classnames from 'classnames';
 import { connect } from 'react-redux';
-import Gridicon from 'components/gridicon';
+import Gridicon from 'calypso/components/gridicon';
 
 /**
  * Internal dependencies
  */
-import Tooltip from 'components/tooltip';
+import Tooltip from 'calypso/components/tooltip';
 import { Button } from '@automattic/components';
-import { recordEditorStat, recordEditorEvent } from 'state/posts/stats';
-import { editPost } from 'state/posts/actions';
-import { getSelectedSiteId } from 'state/ui/selectors';
-import { getEditorPostId } from 'state/editor/selectors';
-import { getEditedPostValue } from 'state/posts/selectors';
+import { recordEditorStat, recordEditorEvent } from 'calypso/state/posts/stats';
+import { editPost } from 'calypso/state/posts/actions';
+import { getSelectedSiteId } from 'calypso/state/ui/selectors';
+import { getEditorPostId } from 'calypso/state/editor/selectors';
+import { getEditedPostValue } from 'calypso/state/posts/selectors';
 
 /**
  * Style dependencies

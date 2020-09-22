@@ -7,9 +7,9 @@ import { endsWith, filter, find, get } from 'lodash';
 /**
  * Internal dependencies
  */
-import { getSiteAdminUrl } from 'state/sites/selectors';
-import getRawSite from 'state/selectors/get-raw-site';
-import { getPostTypes } from 'state/post-types/selectors';
+import { getSiteAdminUrl } from 'calypso/state/sites/selectors';
+import getRawSite from 'calypso/state/selectors/get-raw-site';
+import { getPostTypes } from 'calypso/state/post-types/selectors';
 
 function getDefaultItemTypes( state, siteId ) {
 	const site = getRawSite( state, siteId );

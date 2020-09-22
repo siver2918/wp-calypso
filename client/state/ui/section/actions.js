@@ -1,7 +1,7 @@
 /**
  * Internal dependencies
  */
-import { SECTION_SET } from 'state/action-types';
+import { SECTION_SET } from 'calypso/state/action-types';
 
 export function setSection( section, options = {} ) {
 	const action = {

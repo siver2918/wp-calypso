@@ -7,9 +7,9 @@ import { stringify } from 'qs';
 /**
  * Internal dependencies
  */
-import { serverRender, setShouldServerSideRender } from 'server/render';
-import { setSection as setSectionMiddlewareFactory } from 'controller';
-import { setRoute as setRouteAction } from 'state/route/actions';
+import { serverRender, setShouldServerSideRender } from 'calypso/server/render';
+import { setSection as setSectionMiddlewareFactory } from 'calypso/controller';
+import { setRoute as setRouteAction } from 'calypso/state/route/actions';
 
 export function serverRouter( expressApp, setUpRoute, section ) {
 	return function ( route, ...middlewares ) {

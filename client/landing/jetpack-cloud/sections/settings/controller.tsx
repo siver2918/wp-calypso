@@ -11,7 +11,7 @@ import Credentials from './credentials';
 import HostSelection from './host-selection';
 import SettingsPage from './main';
 import Top from './top';
-import { settingsHostSelectionPath } from 'lib/jetpack/paths';
+import { settingsHostSelectionPath } from 'calypso/lib/jetpack/paths';
 
 export const settingsToHostSelection: PageJS.Callback = ( context ) => {
 	const { site } = context.params;

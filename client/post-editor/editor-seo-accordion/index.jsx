@@ -10,18 +10,18 @@ import { localize } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import Accordion from 'components/accordion';
+import Accordion from 'calypso/components/accordion';
 import { Button } from '@automattic/components';
-import AccordionSection from 'components/accordion/section';
-import CountedTextarea from 'components/forms/counted-textarea';
-import WebPreview from 'components/web-preview';
-import EditorDrawerLabel from 'post-editor/editor-drawer/label';
-import { isJetpackSite } from 'state/sites/selectors';
-import { getSelectedSiteId } from 'state/ui/selectors';
-import { updatePostMetadata } from 'state/posts/actions';
-import { getEditorPostId } from 'state/editor/selectors';
-import { getEditedPost } from 'state/posts/selectors';
-import PostMetadata from 'lib/post-metadata';
+import AccordionSection from 'calypso/components/accordion/section';
+import CountedTextarea from 'calypso/components/forms/counted-textarea';
+import WebPreview from 'calypso/components/web-preview';
+import EditorDrawerLabel from 'calypso/post-editor/editor-drawer/label';
+import { isJetpackSite } from 'calypso/state/sites/selectors';
+import { getSelectedSiteId } from 'calypso/state/ui/selectors';
+import { updatePostMetadata } from 'calypso/state/posts/actions';
+import { getEditorPostId } from 'calypso/state/editor/selectors';
+import { getEditedPost } from 'calypso/state/posts/selectors';
+import PostMetadata from 'calypso/lib/post-metadata';
 
 /**
  * Style dependencies

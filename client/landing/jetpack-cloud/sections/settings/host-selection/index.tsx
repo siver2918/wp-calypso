@@ -10,14 +10,17 @@ import React, { FunctionComponent, useEffect, useMemo } from 'react';
  */
 
 import { getProviderNameFromId, hosts } from '../utils';
-import { getHttpData, DataState } from 'state/data-layer/http-data';
-import { getRequestHosingProviderGuessId, requestHosingProviderGuess } from 'state/data-getters';
-import { getSelectedSiteId, getSelectedSiteSlug } from 'state/ui/selectors';
-import { settingsCredentialsPath } from 'lib/jetpack/paths';
-import Badge from 'components/badge';
+import { getHttpData, DataState } from 'calypso/state/data-layer/http-data';
+import {
+	getRequestHosingProviderGuessId,
+	requestHosingProviderGuess,
+} from 'calypso/state/data-getters';
+import { getSelectedSiteId, getSelectedSiteSlug } from 'calypso/state/ui/selectors';
+import { settingsCredentialsPath } from 'calypso/lib/jetpack/paths';
+import Badge from 'calypso/components/badge';
 
-import VerticalNav from 'components/vertical-nav';
-import VerticalNavItem from 'components/vertical-nav/item';
+import VerticalNav from 'calypso/components/vertical-nav';
+import VerticalNavItem from 'calypso/components/vertical-nav/item';
 
 /**
  * Internal dependencies

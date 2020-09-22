@@ -7,18 +7,21 @@ import React from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
 import { defer, flow, includes, noop, truncate } from 'lodash';
-import Gridicon from 'components/gridicon';
+import Gridicon from 'calypso/components/gridicon';
 
 /**
  * Internal dependencies
  */
-import { startMappingAuthors, startUpload } from 'lib/importer/actions';
-import { appStates } from 'state/imports/constants';
-import { getUploadFilename, getUploadPercentComplete } from 'state/imports/uploads/selectors';
-import DropZone from 'components/drop-zone';
+import { startMappingAuthors, startUpload } from 'calypso/lib/importer/actions';
+import { appStates } from 'calypso/state/imports/constants';
+import {
+	getUploadFilename,
+	getUploadPercentComplete,
+} from 'calypso/state/imports/uploads/selectors';
+import DropZone from 'calypso/components/drop-zone';
 import { ProgressBar } from '@automattic/components';
-import ImporterActionButtonContainer from 'my-sites/importer/importer-action-buttons/container';
-import ImporterCloseButton from 'my-sites/importer/importer-action-buttons/close-button';
+import ImporterActionButtonContainer from 'calypso/my-sites/importer/importer-action-buttons/container';
+import ImporterCloseButton from 'calypso/my-sites/importer/importer-action-buttons/close-button';
 
 /**
  * Style dependencies

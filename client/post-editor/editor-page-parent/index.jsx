@@ -10,16 +10,16 @@ import { get } from 'lodash';
 /**
  * Internal dependencies
  */
-import PostSelector from 'my-sites/post-selector';
-import FormLabel from 'components/forms/form-label';
-import FormLegend from 'components/forms/form-legend';
-import FormToggle from 'components/forms/form-toggle/compact';
-import AccordionSection from 'components/accordion/section';
-import { getSelectedSiteId } from 'state/ui/selectors';
-import { getEditorPostId } from 'state/editor/selectors';
-import { getEditedPostValue } from 'state/posts/selectors';
-import { editPost } from 'state/posts/actions';
-import { getPostType } from 'state/post-types/selectors';
+import PostSelector from 'calypso/my-sites/post-selector';
+import FormLabel from 'calypso/components/forms/form-label';
+import FormLegend from 'calypso/components/forms/form-legend';
+import FormToggle from 'calypso/components/forms/form-toggle/compact';
+import AccordionSection from 'calypso/components/accordion/section';
+import { getSelectedSiteId } from 'calypso/state/ui/selectors';
+import { getEditorPostId } from 'calypso/state/editor/selectors';
+import { getEditedPostValue } from 'calypso/state/posts/selectors';
+import { editPost } from 'calypso/state/posts/actions';
+import { getPostType } from 'calypso/state/post-types/selectors';
 
 /**
  * Style dependencies

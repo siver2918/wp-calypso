@@ -1,7 +1,7 @@
 /**
  * Internal dependencies
  */
-import { getLogger } from 'server/lib/logger';
+import { getLogger } from 'calypso/server/lib/logger';
 
 const NS_TO_MS = 1e-6;
 

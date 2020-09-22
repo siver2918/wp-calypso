@@ -6,23 +6,23 @@ import { localize } from 'i18n-calypso';
 import React from 'react';
 import { connect } from 'react-redux';
 import { get, map } from 'lodash';
-import Gridicon from 'components/gridicon';
+import Gridicon from 'calypso/components/gridicon';
 
 /**
  * Internal dependencies
  */
-import FormLabel from 'components/forms/form-label';
-import FormRadio from 'components/forms/form-radio';
-import QueryPostFormats from 'components/data/query-post-formats';
-import { recordEditorStat, recordEditorEvent } from 'state/posts/stats';
-import AccordionSection from 'components/accordion/section';
-import EditorThemeHelp from 'post-editor/editor-theme-help';
-import { getSelectedSiteId } from 'state/ui/selectors';
-import { getPostFormats } from 'state/post-formats/selectors';
-import { getEditorPostId } from 'state/editor/selectors';
-import { getEditedPostValue } from 'state/posts/selectors';
-import getSiteDefaultPostFormat from 'state/selectors/get-site-default-post-format';
-import { editPost } from 'state/posts/actions';
+import FormLabel from 'calypso/components/forms/form-label';
+import FormRadio from 'calypso/components/forms/form-radio';
+import QueryPostFormats from 'calypso/components/data/query-post-formats';
+import { recordEditorStat, recordEditorEvent } from 'calypso/state/posts/stats';
+import AccordionSection from 'calypso/components/accordion/section';
+import EditorThemeHelp from 'calypso/post-editor/editor-theme-help';
+import { getSelectedSiteId } from 'calypso/state/ui/selectors';
+import { getPostFormats } from 'calypso/state/post-formats/selectors';
+import { getEditorPostId } from 'calypso/state/editor/selectors';
+import { getEditedPostValue } from 'calypso/state/posts/selectors';
+import getSiteDefaultPostFormat from 'calypso/state/selectors/get-site-default-post-format';
+import { editPost } from 'calypso/state/posts/actions';
 
 /**
  * Style dependencies

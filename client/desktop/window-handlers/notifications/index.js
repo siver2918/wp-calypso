@@ -6,9 +6,9 @@ const { ipcMain: ipc } = require( 'electron' ); // eslint-disable-line import/no
 /**
  * Internal dependencies
  */
-const Settings = require( 'desktop/lib/settings' );
-const Platform = require( 'desktop/lib/platform' );
-const log = require( 'desktop/lib/logger' )( 'desktop:notifications' );
+const Settings = require( 'calypso/desktop/lib/settings' );
+const Platform = require( 'calypso/desktop/lib/platform' );
+const log = require( 'calypso/desktop/lib/logger' )( 'desktop:notifications' );
 
 function updateNotificationBadge( count ) {
 	const badgeEnabled = Settings.getSetting( 'notification-badge' );

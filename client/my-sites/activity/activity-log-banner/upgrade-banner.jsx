@@ -8,14 +8,14 @@ import { localize } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import UpsellNudge from 'blocks/upsell-nudge';
-import { isJetpackSite } from 'state/sites/selectors';
+import UpsellNudge from 'calypso/blocks/upsell-nudge';
+import { isJetpackSite } from 'calypso/state/sites/selectors';
 import {
 	FEATURE_JETPACK_ESSENTIAL,
 	FEATURE_OFFSITE_BACKUP_VAULTPRESS_DAILY,
 	PLAN_JETPACK_PERSONAL_MONTHLY,
 	PLAN_PERSONAL,
-} from 'lib/plans/constants';
+} from 'calypso/lib/plans/constants';
 
 /**
  * Style dependencies

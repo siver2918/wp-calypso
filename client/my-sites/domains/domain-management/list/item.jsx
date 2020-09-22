@@ -5,7 +5,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import Gridicon from 'components/gridicon';
+import Gridicon from 'calypso/components/gridicon';
 import { localize } from 'i18n-calypso';
 import { noop } from 'lodash';
 
@@ -13,13 +13,13 @@ import { noop } from 'lodash';
  * Internal dependencies
  */
 import { Button, CompactCard } from '@automattic/components';
-import DomainPrimaryFlag from 'my-sites/domains/domain-management/components/domain/primary-flag';
-import DomainTransferFlag from 'my-sites/domains/domain-management/components/domain/transfer-flag';
-import { type as domainTypes, gdprConsentStatus } from 'lib/domains/constants';
-import Spinner from 'components/spinner';
-import { withLocalizedMoment } from 'components/localized-moment';
-import TrackComponentView from 'lib/analytics/track-component-view';
-import DomainNotice from 'my-sites/domains/domain-management/components/domain-notice';
+import DomainPrimaryFlag from 'calypso/my-sites/domains/domain-management/components/domain/primary-flag';
+import DomainTransferFlag from 'calypso/my-sites/domains/domain-management/components/domain/transfer-flag';
+import { type as domainTypes, gdprConsentStatus } from 'calypso/lib/domains/constants';
+import Spinner from 'calypso/components/spinner';
+import { withLocalizedMoment } from 'calypso/components/localized-moment';
+import TrackComponentView from 'calypso/lib/analytics/track-component-view';
+import DomainNotice from 'calypso/my-sites/domains/domain-management/components/domain-notice';
 import FormRadio from 'calypso/components/forms/form-radio';
 
 class ListItem extends React.PureComponent {

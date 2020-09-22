@@ -7,9 +7,9 @@ import i18n, { getLocaleSlug } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import config from 'config';
-import { languages } from 'languages';
-import { getUrlParts, getUrlFromParts } from 'lib/url/url-parts';
+import config from 'calypso/config';
+import { languages } from 'calypso/languages';
+import { getUrlParts, getUrlFromParts } from 'calypso/lib/url/url-parts';
 
 /**
  * a locale can consist of three component

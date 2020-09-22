@@ -11,13 +11,13 @@ import classNames from 'classnames';
 /**
  * Internal Dependencies
  */
-import TrackInputChanges from 'components/track-input-changes';
-import FormTextInput from 'components/forms/form-text-input';
-import { recordEditorStat, recordEditorEvent } from 'state/posts/stats';
-import { getSelectedSiteId } from 'state/ui/selectors';
-import { getEditorPostId } from 'state/editor/selectors';
-import { getEditedPostSlug } from 'state/posts/selectors';
-import { editPost } from 'state/posts/actions';
+import TrackInputChanges from 'calypso/components/track-input-changes';
+import FormTextInput from 'calypso/components/forms/form-text-input';
+import { recordEditorStat, recordEditorEvent } from 'calypso/state/posts/stats';
+import { getSelectedSiteId } from 'calypso/state/ui/selectors';
+import { getEditorPostId } from 'calypso/state/editor/selectors';
+import { getEditedPostSlug } from 'calypso/state/posts/selectors';
+import { editPost } from 'calypso/state/posts/actions';
 
 /**
  * Style dependencies

@@ -2,27 +2,27 @@
  * External dependencies
  */
 import page from 'page';
-import wp from 'lib/wp';
+import wp from 'calypso/lib/wp';
 import React, { useEffect, useCallback, useMemo, useRef } from 'react';
 import { useTranslate } from 'i18n-calypso';
 import PropTypes from 'prop-types';
 import debugFactory from 'debug';
 import { useSelector, useDispatch, useStore } from 'react-redux';
-import WPCheckout from 'my-sites/checkout/composite-checkout/components/wp-checkout';
-import { useWpcomStore } from 'my-sites/checkout/composite-checkout/hooks/wpcom-store';
-import { areDomainsInLineItems } from 'my-sites/checkout/composite-checkout/hooks/has-domains';
+import WPCheckout from 'calypso/my-sites/checkout/composite-checkout/components/wp-checkout';
+import { useWpcomStore } from 'calypso/my-sites/checkout/composite-checkout/hooks/wpcom-store';
+import { areDomainsInLineItems } from 'calypso/my-sites/checkout/composite-checkout/hooks/has-domains';
 import {
 	emptyManagedContactDetails,
 	applyContactDetailsRequiredMask,
 	domainRequiredContactDetails,
 	taxRequiredContactDetails,
-} from 'my-sites/checkout/composite-checkout/types/wpcom-store-state';
+} from 'calypso/my-sites/checkout/composite-checkout/types/wpcom-store-state';
 import { CheckoutProvider, checkoutTheme, defaultRegistry } from '@automattic/composite-checkout';
 
 /**
  * Internal dependencies
  */
-import { getProductsList, isProductsListFetching } from 'state/products-list/selectors';
+import { getProductsList, isProductsListFetching } from 'calypso/state/products-list/selectors';
 import {
 	useStoredCards,
 	useIsApplePayAvailable,
@@ -30,17 +30,17 @@ import {
 } from './payment-method-helpers';
 import usePrepareProductsForCart from './hooks/use-prepare-products-for-cart';
 import useFetchProductsIfNotLoaded from './hooks/use-fetch-products-if-not-loaded';
-import notices from 'notices';
-import { isJetpackSite } from 'state/sites/selectors';
-import isAtomicSite from 'state/selectors/is-site-automated-transfer';
-import isPrivateSite from 'state/selectors/is-private-site';
-import { updateContactDetailsCache } from 'state/domains/management/actions';
-import QuerySitePurchases from 'components/data/query-site-purchases';
-import { getCurrentUserCountryCode } from 'state/current-user/selectors';
-import { StateSelect } from 'my-sites/domains/components/form';
-import { getPlan } from 'lib/plans';
-import PageViewTracker from 'lib/analytics/page-view-tracker';
-import { useStripe } from 'lib/stripe';
+import notices from 'calypso/notices';
+import { isJetpackSite } from 'calypso/state/sites/selectors';
+import isAtomicSite from 'calypso/state/selectors/is-site-automated-transfer';
+import isPrivateSite from 'calypso/state/selectors/is-private-site';
+import { updateContactDetailsCache } from 'calypso/state/domains/management/actions';
+import QuerySitePurchases from 'calypso/components/data/query-site-purchases';
+import { getCurrentUserCountryCode } from 'calypso/state/current-user/selectors';
+import { StateSelect } from 'calypso/my-sites/domains/components/form';
+import { getPlan } from 'calypso/lib/plans';
+import PageViewTracker from 'calypso/lib/analytics/page-view-tracker';
+import { useStripe } from 'calypso/lib/stripe';
 import CheckoutTerms from '../checkout/checkout-terms.jsx';
 import useCreatePaymentMethods from './use-create-payment-methods';
 import {
@@ -54,21 +54,21 @@ import {
 } from './payment-method-processors';
 import { useGetThankYouUrl } from './use-get-thank-you-url';
 import createAnalyticsEventHandler from './record-analytics';
-import { fillInSingleCartItemAttributes } from 'lib/cart-values';
-import { hasRenewalItem, getRenewalItems, hasPlan } from 'lib/cart-values/cart-items';
-import QueryContactDetailsCache from 'components/data/query-contact-details-cache';
-import QuerySitePlans from 'components/data/query-site-plans';
-import QueryPlans from 'components/data/query-plans';
-import QueryProducts from 'components/data/query-products-list';
-import { clearPurchases } from 'state/purchases/actions';
-import { fetchReceiptCompleted } from 'state/receipts/actions';
-import { requestSite } from 'state/sites/actions';
-import { fetchSitesAndUser } from 'lib/signup/step-actions/fetch-sites-and-user';
-import { getDomainNameFromReceiptOrCart } from 'lib/domains/cart-utils';
-import { AUTO_RENEWAL } from 'lib/url/support';
-import { useLocalizedMoment } from 'components/localized-moment';
-import isDomainOnlySite from 'state/selectors/is-domain-only-site';
-import { retrieveSignupDestination, clearSignupDestinationCookie } from 'signup/utils';
+import { fillInSingleCartItemAttributes } from 'calypso/lib/cart-values';
+import { hasRenewalItem, getRenewalItems, hasPlan } from 'calypso/lib/cart-values/cart-items';
+import QueryContactDetailsCache from 'calypso/components/data/query-contact-details-cache';
+import QuerySitePlans from 'calypso/components/data/query-site-plans';
+import QueryPlans from 'calypso/components/data/query-plans';
+import QueryProducts from 'calypso/components/data/query-products-list';
+import { clearPurchases } from 'calypso/state/purchases/actions';
+import { fetchReceiptCompleted } from 'calypso/state/receipts/actions';
+import { requestSite } from 'calypso/state/sites/actions';
+import { fetchSitesAndUser } from 'calypso/lib/signup/step-actions/fetch-sites-and-user';
+import { getDomainNameFromReceiptOrCart } from 'calypso/lib/domains/cart-utils';
+import { AUTO_RENEWAL } from 'calypso/lib/url/support';
+import { useLocalizedMoment } from 'calypso/components/localized-moment';
+import isDomainOnlySite from 'calypso/state/selectors/is-domain-only-site';
+import { retrieveSignupDestination, clearSignupDestinationCookie } from 'calypso/signup/utils';
 import { useProductVariants } from './hooks/product-variants';
 import { CartProvider } from './cart-provider';
 import { translateResponseCartToWPCOMCart } from './lib/translate-cart';
@@ -76,11 +76,11 @@ import useShoppingCartManager from './hooks/use-shopping-cart-manager';
 import useShowAddCouponSuccessMessage from './hooks/use-show-add-coupon-success-message';
 import useCountryList from './hooks/use-country-list';
 import { colors } from '@automattic/color-studio';
-import { needsDomainDetails } from 'my-sites/checkout/composite-checkout/payment-method-helpers';
-import { isGSuiteProductSlug } from 'lib/gsuite';
+import { needsDomainDetails } from 'calypso/my-sites/checkout/composite-checkout/payment-method-helpers';
+import { isGSuiteProductSlug } from 'calypso/lib/gsuite';
 import useCachedDomainContactDetails from './hooks/use-cached-domain-contact-details';
 import useDisplayErrors from './hooks/use-display-errors';
-import CartMessages from 'my-sites/checkout/cart/cart-messages';
+import CartMessages from 'calypso/my-sites/checkout/cart/cart-messages';
 
 const debug = debugFactory( 'calypso:composite-checkout:composite-checkout' );
 

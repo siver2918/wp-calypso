@@ -8,30 +8,30 @@ import { get, has, isInteger, noop } from 'lodash';
 /**
  * Internal dependencies
  */
-import { shouldLoadGutenberg } from 'state/selectors/should-load-gutenberg';
-import { shouldRedirectGutenberg } from 'state/selectors/should-redirect-gutenberg';
-import { EDITOR_START, POST_EDIT } from 'state/action-types';
-import { getSelectedSiteId, getSelectedSiteSlug } from 'state/ui/selectors';
+import { shouldLoadGutenberg } from 'calypso/state/selectors/should-load-gutenberg';
+import { shouldRedirectGutenberg } from 'calypso/state/selectors/should-redirect-gutenberg';
+import { EDITOR_START, POST_EDIT } from 'calypso/state/action-types';
+import { getSelectedSiteId, getSelectedSiteSlug } from 'calypso/state/ui/selectors';
 import CalypsoifyIframe from './calypsoify-iframe';
-import getGutenbergEditorUrl from 'state/selectors/get-gutenberg-editor-url';
-import { addQueryArgs } from 'lib/route';
-import { getSelectedEditor } from 'state/selectors/get-selected-editor';
-import { requestSelectedEditor } from 'state/selected-editor/actions';
+import getGutenbergEditorUrl from 'calypso/state/selectors/get-gutenberg-editor-url';
+import { addQueryArgs } from 'calypso/lib/route';
+import { getSelectedEditor } from 'calypso/state/selectors/get-selected-editor';
+import { requestSelectedEditor } from 'calypso/state/selected-editor/actions';
 import {
 	getSiteUrl,
 	getSiteOption,
 	getSite,
 	isJetpackSite,
 	isSSOEnabled,
-} from 'state/sites/selectors';
-import isSiteWpcomAtomic from 'state/selectors/is-site-wpcom-atomic';
-import { isEnabled } from 'config';
+} from 'calypso/state/sites/selectors';
+import isSiteWpcomAtomic from 'calypso/state/selectors/is-site-wpcom-atomic';
+import { isEnabled } from 'calypso/config';
 import { Placeholder } from './placeholder';
-import { makeLayout, render } from 'controller';
-import isSiteUsingCoreSiteEditor from 'state/selectors/is-site-using-core-site-editor';
-import getSiteEditorUrl from 'state/selectors/get-site-editor-url';
-import { REASON_BLOCK_EDITOR_JETPACK_REQUIRES_SSO } from 'state/desktop/window-events';
-import { notifyDesktopCannotOpenEditor } from 'state/desktop/actions';
+import { makeLayout, render } from 'calypso/controller';
+import isSiteUsingCoreSiteEditor from 'calypso/state/selectors/is-site-using-core-site-editor';
+import getSiteEditorUrl from 'calypso/state/selectors/get-site-editor-url';
+import { REASON_BLOCK_EDITOR_JETPACK_REQUIRES_SSO } from 'calypso/state/desktop/window-events';
+import { notifyDesktopCannotOpenEditor } from 'calypso/state/desktop/actions';
 
 function determinePostType( context ) {
 	if ( context.path.startsWith( '/block-editor/post/' ) ) {

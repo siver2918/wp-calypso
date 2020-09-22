@@ -9,12 +9,12 @@ import { connect } from 'react-redux';
 /**
  * Internal dependencies
  */
-import EditorDrawerLabel from 'post-editor/editor-drawer/label';
-import AccordionSection from 'components/accordion/section';
-import Slug from 'post-editor/editor-slug';
-import { getSelectedSiteId } from 'state/ui/selectors';
-import { getEditorPostId } from 'state/editor/selectors';
-import { getEditedPostValue } from 'state/posts/selectors';
+import EditorDrawerLabel from 'calypso/post-editor/editor-drawer/label';
+import AccordionSection from 'calypso/components/accordion/section';
+import Slug from 'calypso/post-editor/editor-slug';
+import { getSelectedSiteId } from 'calypso/state/ui/selectors';
+import { getEditorPostId } from 'calypso/state/editor/selectors';
+import { getEditedPostValue } from 'calypso/state/posts/selectors';
 
 /**
  * Style dependencies

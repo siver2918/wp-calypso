@@ -23,8 +23,8 @@ import {
 	PLAN_JETPACK_PREMIUM_MONTHLY,
 	PLAN_JETPACK_BUSINESS_MONTHLY,
 	PLAN_JETPACK_PERSONAL_MONTHLY,
-} from 'lib/plans/constants';
-import selectors from 'state/sites/selectors';
+} from 'calypso/lib/plans/constants';
+import selectors from 'calypso/state/sites/selectors';
 
 jest.mock( 'state/sites/selectors', () => ( {
 	getSitePlanSlug: jest.fn(),

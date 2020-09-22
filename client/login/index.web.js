@@ -7,7 +7,7 @@ import { Provider as ReduxProvider } from 'react-redux';
 /**
  * Internal dependencies
  */
-import config from 'config';
+import config from 'calypso/config';
 import {
 	login,
 	magicLogin,
@@ -16,10 +16,10 @@ import {
 	redirectDefaultLocale,
 } from './controller';
 import { setShouldServerSideRenderLogin } from './ssr';
-import { setUpLocale, setSection, makeLayoutMiddleware } from 'controller/shared';
-import { redirectLoggedIn } from 'controller/web-util';
-import LayoutLoggedOut from 'layout/logged-out';
-import { getLanguageRouteParam } from 'lib/i18n-utils';
+import { setUpLocale, setSection, makeLayoutMiddleware } from 'calypso/controller/shared';
+import { redirectLoggedIn } from 'calypso/controller/web-util';
+import LayoutLoggedOut from 'calypso/layout/logged-out';
+import { getLanguageRouteParam } from 'calypso/lib/i18n-utils';
 
 export const LOGIN_SECTION_DEFINITION = {
 	name: 'login',

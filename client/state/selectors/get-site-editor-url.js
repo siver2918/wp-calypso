@@ -1,8 +1,8 @@
 /**
  * Internal dependencies
  */
-import { shouldRedirectGutenberg } from 'state/selectors/should-redirect-gutenberg';
-import { getSiteAdminUrl, getSiteSlug } from 'state/sites/selectors';
+import { shouldRedirectGutenberg } from 'calypso/state/selectors/should-redirect-gutenberg';
+import { getSiteAdminUrl, getSiteSlug } from 'calypso/state/sites/selectors';
 
 /**
  * Retrieves url for site editor.

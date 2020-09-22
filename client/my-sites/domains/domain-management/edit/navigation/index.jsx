@@ -8,11 +8,11 @@ import { connect } from 'react-redux';
 /**
  * Internal dependencies
  */
-import { withLocalizedMoment } from 'components/localized-moment';
-import { getDomainTypeText } from 'lib/domains';
-import VerticalNav from 'components/vertical-nav';
-import VerticalNavItem from 'components/vertical-nav/item';
-import MaterialIcon from 'components/material-icon';
+import { withLocalizedMoment } from 'calypso/components/localized-moment';
+import { getDomainTypeText } from 'calypso/lib/domains';
+import VerticalNav from 'calypso/components/vertical-nav';
+import VerticalNavItem from 'calypso/components/vertical-nav/item';
+import MaterialIcon from 'calypso/components/material-icon';
 import {
 	domainAddNew,
 	domainManagementNameServers,
@@ -21,13 +21,13 @@ import {
 	domainManagementDns,
 	domainManagementDomainConnectMapping,
 	domainManagementChangeSiteAddress,
-} from 'my-sites/domains/paths';
-import { emailManagement } from 'my-sites/email/paths';
-import { type as domainTypes, transferStatus } from 'lib/domains/constants';
-import { recordTracksEvent, recordGoogleEvent } from 'state/analytics/actions';
-import { isCancelable } from 'lib/purchases';
-import { cancelPurchase } from 'me/purchases/paths';
-import RemovePurchase from 'me/purchases/remove-purchase';
+} from 'calypso/my-sites/domains/paths';
+import { emailManagement } from 'calypso/my-sites/email/paths';
+import { type as domainTypes, transferStatus } from 'calypso/lib/domains/constants';
+import { recordTracksEvent, recordGoogleEvent } from 'calypso/state/analytics/actions';
+import { isCancelable } from 'calypso/lib/purchases';
+import { cancelPurchase } from 'calypso/me/purchases/paths';
+import RemovePurchase from 'calypso/me/purchases/remove-purchase';
 
 import './style.scss';
 

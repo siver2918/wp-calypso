@@ -4,23 +4,23 @@
 import React from 'react';
 import { localize } from 'i18n-calypso';
 import { connect } from 'react-redux';
-import Gridicon from 'components/gridicon';
+import Gridicon from 'calypso/components/gridicon';
 
 /**
  * Internal dependencies
  */
-import config from 'config';
+import config from 'calypso/config';
 import { addQueryArgs } from '@wordpress/url';
-import { withLocalizedMoment } from 'components/localized-moment';
+import { withLocalizedMoment } from 'calypso/components/localized-moment';
 import {
 	getDomainTypeText,
 	isSubdomain,
 	isDomainUpdateable,
 	isDomainInGracePeriod,
-} from 'lib/domains';
-import VerticalNav from 'components/vertical-nav';
-import VerticalNavItem from 'components/vertical-nav/item';
-import MaterialIcon from 'components/material-icon';
+} from 'calypso/lib/domains';
+import VerticalNav from 'calypso/components/vertical-nav';
+import VerticalNavItem from 'calypso/components/vertical-nav/item';
+import MaterialIcon from 'calypso/components/material-icon';
 import {
 	domainAddNew,
 	domainManagementNameServers,
@@ -33,18 +33,18 @@ import {
 	domainTransferIn,
 	domainManagementSecurity,
 	isUnderDomainManagementAll,
-} from 'my-sites/domains/paths';
-import { emailManagement } from 'my-sites/email/paths';
-import { type as domainTypes, transferStatus, sslStatuses } from 'lib/domains/constants';
-import { recordTracksEvent, recordGoogleEvent } from 'state/analytics/actions';
-import { isCancelable } from 'lib/purchases';
-import { cancelPurchase } from 'me/purchases/paths';
-import { getUnmappedUrl } from 'lib/site/utils';
-import { withoutHttp } from 'lib/url';
-import RemovePurchase from 'me/purchases/remove-purchase';
-import { hasGSuiteWithUs, getGSuiteMailboxCount } from 'lib/gsuite';
-import getCurrentRoute from 'state/selectors/get-current-route';
-import { isRecentlyRegistered } from 'lib/domains/utils';
+} from 'calypso/my-sites/domains/paths';
+import { emailManagement } from 'calypso/my-sites/email/paths';
+import { type as domainTypes, transferStatus, sslStatuses } from 'calypso/lib/domains/constants';
+import { recordTracksEvent, recordGoogleEvent } from 'calypso/state/analytics/actions';
+import { isCancelable } from 'calypso/lib/purchases';
+import { cancelPurchase } from 'calypso/me/purchases/paths';
+import { getUnmappedUrl } from 'calypso/lib/site/utils';
+import { withoutHttp } from 'calypso/lib/url';
+import RemovePurchase from 'calypso/me/purchases/remove-purchase';
+import { hasGSuiteWithUs, getGSuiteMailboxCount } from 'calypso/lib/gsuite';
+import getCurrentRoute from 'calypso/state/selectors/get-current-route';
+import { isRecentlyRegistered } from 'calypso/lib/domains/utils';
 
 import './style.scss';
 

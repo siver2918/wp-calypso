@@ -10,10 +10,10 @@ import SelectorPage from './selector';
 import DetailsPage from './details';
 import UpsellPage from './upsell';
 import { stringToDuration } from './utils';
-import getCurrentPlanTerm from 'state/selectors/get-current-plan-term';
-import { getSelectedSiteId } from 'state/ui/selectors';
-import { Duration } from 'my-sites/plans-v2/types';
-import { TERM_ANNUALLY } from 'lib/plans/constants';
+import getCurrentPlanTerm from 'calypso/state/selectors/get-current-plan-term';
+import { getSelectedSiteId } from 'calypso/state/ui/selectors';
+import { Duration } from 'calypso/my-sites/plans-v2/types';
+import { TERM_ANNUALLY } from 'calypso/lib/plans/constants';
 
 export const productSelect = ( rootUrl: string ) => ( context: PageJS.Context, next: Function ) => {
 	// Get the selected site's current plan term, and set it as default duration

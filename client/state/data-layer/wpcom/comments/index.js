@@ -13,21 +13,21 @@ import {
 	COMMENTS_UPDATES_RECEIVE,
 	COMMENTS_COUNT_RECEIVE,
 	COMMENTS_DELETE,
-} from 'state/action-types';
-import { http } from 'state/data-layer/wpcom-http/actions';
-import { dispatchRequest } from 'state/data-layer/wpcom-http/utils';
-import { errorNotice, successNotice } from 'state/notices/actions';
-import { getSitePost } from 'state/posts/selectors';
-import { requestCommentsList } from 'state/comments/actions';
+} from 'calypso/state/action-types';
+import { http } from 'calypso/state/data-layer/wpcom-http/actions';
+import { dispatchRequest } from 'calypso/state/data-layer/wpcom-http/utils';
+import { errorNotice, successNotice } from 'calypso/state/notices/actions';
+import { getSitePost } from 'calypso/state/posts/selectors';
+import { requestCommentsList } from 'calypso/state/comments/actions';
 import {
 	getPostOldestCommentDate,
 	getPostNewestCommentDate,
 	getPostCommentsCountAtDate,
 	getSiteComment,
-} from 'state/comments/selectors';
-import { decodeEntities } from 'lib/formatting';
+} from 'calypso/state/comments/selectors';
+import { decodeEntities } from 'calypso/lib/formatting';
 
-import { registerHandlers } from 'state/data-layer/handler-registry';
+import { registerHandlers } from 'calypso/state/data-layer/handler-registry';
 
 export const commentsFromApi = ( comments ) =>
 	map( comments, ( comment ) =>

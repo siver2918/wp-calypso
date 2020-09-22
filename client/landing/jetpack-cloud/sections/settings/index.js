@@ -6,22 +6,22 @@ import page from 'page';
 /**
  * Internal dependencies
  */
-import { makeLayout, render as clientRender } from 'controller';
-import { navigation, siteSelection, sites } from 'my-sites/controller';
+import { makeLayout, render as clientRender } from 'calypso/controller';
+import { navigation, siteSelection, sites } from 'calypso/my-sites/controller';
 import {
 	settings,
 	hostSelection,
 	credentials,
 	withTop,
 	settingsToHostSelection,
-} from 'landing/jetpack-cloud/sections/settings/controller';
+} from 'calypso/landing/jetpack-cloud/sections/settings/controller';
 import {
 	settingsPath,
 	settingsHostSelectionPath,
 	settingsCredentialsPath,
-} from 'lib/jetpack/paths';
-import { isEnabled } from 'config';
-import isJetpackCloud from 'lib/jetpack/is-jetpack-cloud';
+} from 'calypso/lib/jetpack/paths';
+import { isEnabled } from 'calypso/config';
+import isJetpackCloud from 'calypso/lib/jetpack/is-jetpack-cloud';
 
 export default function () {
 	if ( isJetpackCloud() ) {

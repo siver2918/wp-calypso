@@ -1,9 +1,9 @@
 /**
  * Internal dependencies
  */
-import 'state/inline-help/init';
-import 'state/data-layer/wpcom/sites/admin-menu';
-import { ADMIN_MENU_REQUEST, ADMIN_MENU_RECEIVE } from 'state/action-types';
+import 'calypso/state/inline-help/init';
+import 'calypso/state/data-layer/wpcom/sites/admin-menu';
+import { ADMIN_MENU_REQUEST, ADMIN_MENU_RECEIVE } from 'calypso/state/action-types';
 
 export const requestAdminMenu = function requestAdminMenu( siteId ) {
 	return {

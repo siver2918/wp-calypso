@@ -10,14 +10,14 @@ import formatCurrency from '@automattic/format-currency';
 /**
  * Internal dependencies
  */
-import { saveSignupStep, submitSignupStep } from 'state/signup/progress/actions';
+import { saveSignupStep, submitSignupStep } from 'calypso/state/signup/progress/actions';
 import UpsellForm from './form';
-import StepWrapper from 'signup/step-wrapper';
-import { getDomainPrice, getDomainSalePrice } from 'lib/domains';
-import { getCurrentUserCurrencyCode } from 'state/current-user/selectors';
-import { getProductsList } from 'state/products-list/selectors';
-import { getPlanRawPrice } from 'state/plans/selectors';
-import { recordTracksEvent } from 'state/analytics/actions';
+import StepWrapper from 'calypso/signup/step-wrapper';
+import { getDomainPrice, getDomainSalePrice } from 'calypso/lib/domains';
+import { getCurrentUserCurrencyCode } from 'calypso/state/current-user/selectors';
+import { getProductsList } from 'calypso/state/products-list/selectors';
+import { getPlanRawPrice } from 'calypso/state/plans/selectors';
+import { recordTracksEvent } from 'calypso/state/analytics/actions';
 
 class Upsell extends Component {
 	componentDidMount() {

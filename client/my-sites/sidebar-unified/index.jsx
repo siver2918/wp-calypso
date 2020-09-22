@@ -16,20 +16,20 @@ import { useSelector, useDispatch } from 'react-redux';
 /**
  * Internal dependencies
  */
-import { getCurrentRoute } from 'state/selectors/get-current-route';
-import { getSelectedSiteId } from 'state/ui/selectors';
-import { getAdminMenu } from 'state/admin-menu/selectors';
-import { isUnderDomainManagementAll } from 'my-sites/domains/paths';
-import { isUnderEmailManagementAll } from 'my-sites/email/paths';
+import { getCurrentRoute } from 'calypso/state/selectors/get-current-route';
+import { getSelectedSiteId } from 'calypso/state/ui/selectors';
+import { getAdminMenu } from 'calypso/state/admin-menu/selectors';
+import { isUnderDomainManagementAll } from 'calypso/my-sites/domains/paths';
+import { isUnderEmailManagementAll } from 'calypso/my-sites/email/paths';
 import { requestAdminMenu } from '../../state/admin-menu/actions';
-import CurrentSite from 'my-sites/current-site';
+import CurrentSite from 'calypso/my-sites/current-site';
 import MySitesSidebarUnifiedItem from './item';
 import MySitesSidebarUnifiedMenu from './menu';
-import Sidebar from 'layout/sidebar';
-import SidebarSeparator from 'layout/sidebar/separator';
+import Sidebar from 'calypso/layout/sidebar';
+import SidebarSeparator from 'calypso/layout/sidebar/separator';
 
-import 'layout/sidebar-unified/style.scss';
-import 'state/admin-menu/init';
+import 'calypso/layout/sidebar-unified/style.scss';
+import 'calypso/state/admin-menu/init';
 
 export const MySitesSidebarUnified = ( { path } ) => {
 	const reduxDispatch = useDispatch();

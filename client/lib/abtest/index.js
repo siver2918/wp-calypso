@@ -9,12 +9,12 @@ import { getLocaleSlug } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import activeTests from 'lib/abtest/active-tests';
-import { recordTracksEvent } from 'lib/analytics/tracks';
-import user from 'lib/user';
-import wpcom from 'lib/wp';
-import { ABTEST_LOCALSTORAGE_KEY } from 'lib/abtest/utility';
-import { getLanguageSlugs } from 'lib/i18n-utils/utils';
+import activeTests from 'calypso/lib/abtest/active-tests';
+import { recordTracksEvent } from 'calypso/lib/analytics/tracks';
+import user from 'calypso/lib/user';
+import wpcom from 'calypso/lib/wp';
+import { ABTEST_LOCALSTORAGE_KEY } from 'calypso/lib/abtest/utility';
+import { getLanguageSlugs } from 'calypso/lib/i18n-utils/utils';
 
 const debug = debugFactory( 'calypso:abtests' );
 

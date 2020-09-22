@@ -1,8 +1,8 @@
 /**
  * Internal dependencies
  */
-import type { GSuiteProductUser } from 'lib/gsuite/new-users';
-import type { DomainContactDetails } from 'my-sites/checkout/composite-checkout/types/backend/domain-contact-details-components';
+import type { GSuiteProductUser } from 'calypso/lib/gsuite/new-users';
+import type { DomainContactDetails } from 'calypso/my-sites/checkout/composite-checkout/types/backend/domain-contact-details-components';
 
 export type CartItemValue = {
 	product_id?: number;

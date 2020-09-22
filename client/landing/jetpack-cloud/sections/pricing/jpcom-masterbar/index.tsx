@@ -9,9 +9,9 @@ import { translate } from 'i18n-calypso';
  * Internal dependencies
  */
 import { Button } from '@automattic/components';
-import ExternalLink from 'components/external-link';
-import JetpackLogo from 'components/jetpack-logo';
-import useDetectWindowBoundary from 'my-sites/plans-v2/use-detect-window-boundary';
+import ExternalLink from 'calypso/components/external-link';
+import JetpackLogo from 'calypso/components/jetpack-logo';
+import useDetectWindowBoundary from 'calypso/my-sites/plans-v2/use-detect-window-boundary';
 
 /**
  * Style dependencies

@@ -6,13 +6,13 @@ import { useSelector } from 'react-redux';
 /**
  * Internal dependencies
  */
-import { isProductsListFetching } from 'state/products-list/selectors/is-products-list-fetching';
-import { getProductCost } from 'state/products-list/selectors/get-product-cost';
-import { TERM_MONTHLY } from 'lib/plans/constants';
+import { isProductsListFetching } from 'calypso/state/products-list/selectors/is-products-list-fetching';
+import { getProductCost } from 'calypso/state/products-list/selectors/get-product-cost';
+import { TERM_MONTHLY } from 'calypso/lib/plans/constants';
 import {
 	getSiteAvailableProductCost,
 	isRequestingSiteProducts,
-} from 'state/sites/products/selectors';
+} from 'calypso/state/sites/products/selectors';
 
 /**
  * Type dependencies

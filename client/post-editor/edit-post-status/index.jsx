@@ -5,23 +5,23 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { localize } from 'i18n-calypso';
 import { connect } from 'react-redux';
-import Gridicon from 'components/gridicon';
+import Gridicon from 'calypso/components/gridicon';
 
 /**
  * Internal dependencies
  */
 import { Button } from '@automattic/components';
-import FormToggle from 'components/forms/form-toggle/compact';
-import * as postUtils from 'state/posts/utils';
-import InfoPopover from 'components/info-popover';
-import { recordEditorStat, recordEditorEvent } from 'state/posts/stats';
-import { editPost } from 'state/posts/actions';
-import { getSelectedSiteId } from 'state/ui/selectors';
-import { getEditorPostId } from 'state/editor/selectors';
-import { getEditedPost, getSitePost } from 'state/posts/selectors';
-import EditorPublishDate from 'post-editor/editor-publish-date';
-import EditorVisibility from 'post-editor/editor-visibility';
-import canCurrentUser from 'state/selectors/can-current-user';
+import FormToggle from 'calypso/components/forms/form-toggle/compact';
+import * as postUtils from 'calypso/state/posts/utils';
+import InfoPopover from 'calypso/components/info-popover';
+import { recordEditorStat, recordEditorEvent } from 'calypso/state/posts/stats';
+import { editPost } from 'calypso/state/posts/actions';
+import { getSelectedSiteId } from 'calypso/state/ui/selectors';
+import { getEditorPostId } from 'calypso/state/editor/selectors';
+import { getEditedPost, getSitePost } from 'calypso/state/posts/selectors';
+import EditorPublishDate from 'calypso/post-editor/editor-publish-date';
+import EditorVisibility from 'calypso/post-editor/editor-visibility';
+import canCurrentUser from 'calypso/state/selectors/can-current-user';
 
 /**
  * Style dependencies

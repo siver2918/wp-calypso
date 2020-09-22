@@ -9,13 +9,13 @@ import { useDispatch, useSelector } from 'react-redux';
  * Internal dependencies
  */
 import { useTranslate } from 'i18n-calypso';
-import { settingsPath } from 'lib/jetpack/paths';
-import { backupDownloadPath, backupRestorePath } from 'my-sites/backup/paths';
-import { recordTracksEvent } from 'state/analytics/actions';
-import { getSelectedSiteId, getSelectedSiteSlug } from 'state/ui/selectors';
-import getDoesRewindNeedCredentials from 'state/selectors/get-does-rewind-need-credentials';
-import Button from 'components/forms/form-button';
-import ExternalLink from 'components/external-link';
+import { settingsPath } from 'calypso/lib/jetpack/paths';
+import { backupDownloadPath, backupRestorePath } from 'calypso/my-sites/backup/paths';
+import { recordTracksEvent } from 'calypso/state/analytics/actions';
+import { getSelectedSiteId, getSelectedSiteSlug } from 'calypso/state/ui/selectors';
+import getDoesRewindNeedCredentials from 'calypso/state/selectors/get-does-rewind-need-credentials';
+import Button from 'calypso/components/forms/form-button';
+import ExternalLink from 'calypso/components/external-link';
 
 /**
  * Style dependencies

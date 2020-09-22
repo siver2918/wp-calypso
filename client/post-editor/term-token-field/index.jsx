@@ -10,16 +10,16 @@ import _debug from 'debug';
 /**
  * Internal dependencies
  */
-import { getSelectedSiteId } from 'state/ui/selectors';
-import { getTerms } from 'state/terms/selectors';
-import { getEditorPostId } from 'state/editor/selectors';
-import { getEditedPostValue } from 'state/posts/selectors';
-import { getPostTypeTaxonomy } from 'state/post-types/taxonomies/selectors';
-import { editPost } from 'state/posts/actions';
-import TokenField from 'components/token-field';
-import { decodeEntities } from 'lib/formatting';
-import { recordEditorStat, recordEditorEvent } from 'state/posts/stats';
-import QueryTerms from 'components/data/query-terms';
+import { getSelectedSiteId } from 'calypso/state/ui/selectors';
+import { getTerms } from 'calypso/state/terms/selectors';
+import { getEditorPostId } from 'calypso/state/editor/selectors';
+import { getEditedPostValue } from 'calypso/state/posts/selectors';
+import { getPostTypeTaxonomy } from 'calypso/state/post-types/taxonomies/selectors';
+import { editPost } from 'calypso/state/posts/actions';
+import TokenField from 'calypso/components/token-field';
+import { decodeEntities } from 'calypso/lib/formatting';
+import { recordEditorStat, recordEditorEvent } from 'calypso/state/posts/stats';
+import QueryTerms from 'calypso/components/data/query-terms';
 
 const debug = _debug( 'calypso:post-editor:editor-terms' );
 const DEFAULT_NON_HIERARCHICAL_QUERY = {

@@ -7,8 +7,8 @@ import { translate } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import FormattedHeader from 'components/formatted-header';
-import { preventWidows } from 'lib/formatting';
+import FormattedHeader from 'calypso/components/formatted-header';
+import { preventWidows } from 'calypso/lib/formatting';
 import JetpackComMasterbar from '../jpcom-masterbar';
 
 /**

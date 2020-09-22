@@ -4,12 +4,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import Gridicon from 'components/gridicon';
+import Gridicon from 'calypso/components/gridicon';
 
 /**
  * Internal dependencies
  */
-import Image from 'components/image';
+import Image from 'calypso/components/image';
 import FormRadio from 'calypso/components/forms/form-radio';
 
 /**

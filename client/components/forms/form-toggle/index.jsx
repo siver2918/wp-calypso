@@ -13,7 +13,7 @@ import { noop } from 'lodash';
 /**
  * Internal dependencies
  */
-import FormInputCheckbox from 'components/forms/form-checkbox';
+import FormInputCheckbox from 'calypso/components/forms/form-checkbox';
 
 /**
  * Style dependencies

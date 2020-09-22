@@ -9,7 +9,7 @@ import { v4 as uuidv4 } from 'uuid';
 /**
  * Internal dependencies
  */
-import { googleApps, googleAppsExtraLicenses } from 'lib/cart-values/cart-items';
+import { googleApps, googleAppsExtraLicenses } from 'calypso/lib/cart-values/cart-items';
 import { hasGSuiteWithUs } from './has-gsuite-with-us';
 
 // exporting these in the big export below causes trouble

@@ -6,18 +6,18 @@ import React, { Component, Fragment } from 'react';
 import { pick } from 'lodash';
 import { localize } from 'i18n-calypso';
 import { connect } from 'react-redux';
-import Gridicon from 'components/gridicon';
+import Gridicon from 'calypso/components/gridicon';
 
 /**
  * Internal dependencies
  */
-import Slug from 'post-editor/editor-slug';
-import Popover from 'components/popover';
-import Tooltip from 'components/tooltip';
-import ClipboardButton from 'components/forms/clipboard-button';
-import { getSelectedSiteId } from 'state/ui/selectors';
-import { getEditorPostId } from 'state/editor/selectors';
-import { getEditedPostSlug } from 'state/posts/selectors';
+import Slug from 'calypso/post-editor/editor-slug';
+import Popover from 'calypso/components/popover';
+import Tooltip from 'calypso/components/tooltip';
+import ClipboardButton from 'calypso/components/forms/clipboard-button';
+import { getSelectedSiteId } from 'calypso/state/ui/selectors';
+import { getEditorPostId } from 'calypso/state/editor/selectors';
+import { getEditedPostSlug } from 'calypso/state/posts/selectors';
 
 /**
  * Style dependencies

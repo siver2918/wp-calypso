@@ -12,30 +12,34 @@ import { overSome } from 'lodash';
  * Internal dependencies
  */
 import { CompactCard } from '@automattic/components';
-import UpsellNudge from 'blocks/upsell-nudge';
-import QuerySitePurchases from 'components/data/query-site-purchases';
-import SettingsSectionHeader from 'my-sites/site-settings/settings-section-header';
-import JetpackModuleToggle from 'my-sites/site-settings/jetpack-module-toggle';
-import CompactFormToggle from 'components/forms/form-toggle/compact';
-import FormFieldset from 'components/forms/form-fieldset';
-import FormSettingExplanation from 'components/forms/form-setting-explanation';
-import SupportInfo from 'components/support-info';
-import QueryJetpackConnection from 'components/data/query-jetpack-connection';
-import { getSelectedSite, getSelectedSiteId, getSelectedSiteSlug } from 'state/ui/selectors';
-import isActivatingJetpackModule from 'state/selectors/is-activating-jetpack-module';
-import isDeactivatingJetpackModule from 'state/selectors/is-deactivating-jetpack-module';
-import { getSitePurchases, isFetchingSitePurchases } from 'state/purchases/selectors';
-import isJetpackModuleActive from 'state/selectors/is-jetpack-module-active';
-import { isJetpackSite, getCustomizerUrl } from 'state/sites/selectors';
+import UpsellNudge from 'calypso/blocks/upsell-nudge';
+import QuerySitePurchases from 'calypso/components/data/query-site-purchases';
+import SettingsSectionHeader from 'calypso/my-sites/site-settings/settings-section-header';
+import JetpackModuleToggle from 'calypso/my-sites/site-settings/jetpack-module-toggle';
+import CompactFormToggle from 'calypso/components/forms/form-toggle/compact';
+import FormFieldset from 'calypso/components/forms/form-fieldset';
+import FormSettingExplanation from 'calypso/components/forms/form-setting-explanation';
+import SupportInfo from 'calypso/components/support-info';
+import QueryJetpackConnection from 'calypso/components/data/query-jetpack-connection';
+import {
+	getSelectedSite,
+	getSelectedSiteId,
+	getSelectedSiteSlug,
+} from 'calypso/state/ui/selectors';
+import isActivatingJetpackModule from 'calypso/state/selectors/is-activating-jetpack-module';
+import isDeactivatingJetpackModule from 'calypso/state/selectors/is-deactivating-jetpack-module';
+import { getSitePurchases, isFetchingSitePurchases } from 'calypso/state/purchases/selectors';
+import isJetpackModuleActive from 'calypso/state/selectors/is-jetpack-module-active';
+import { isJetpackSite, getCustomizerUrl } from 'calypso/state/sites/selectors';
 import {
 	isBusiness,
 	isEnterprise,
 	isVipPlan,
 	isJetpackBusiness,
 	isEcommerce,
-} from 'lib/products-values';
-import { FEATURE_SEARCH, PLAN_BUSINESS } from 'lib/plans/constants';
-import { PRODUCT_JETPACK_SEARCH, isJetpackSearch } from 'lib/products-values/constants';
+} from 'calypso/lib/products-values';
+import { FEATURE_SEARCH, PLAN_BUSINESS } from 'calypso/lib/plans/constants';
+import { PRODUCT_JETPACK_SEARCH, isJetpackSearch } from 'calypso/lib/products-values/constants';
 
 class Search extends Component {
 	static defaultProps = {

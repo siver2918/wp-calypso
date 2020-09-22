@@ -7,17 +7,17 @@ import ReactDom from 'react-dom';
 import { connect } from 'react-redux';
 import { localize } from 'i18n-calypso';
 import classNames from 'classnames';
-import Gridicon from 'components/gridicon';
+import Gridicon from 'calypso/components/gridicon';
 import { intersection } from 'lodash';
 
 /**
  * Internal dependencies
  */
 import { Button } from '@automattic/components';
-import { withLocalizedMoment } from 'components/localized-moment';
+import { withLocalizedMoment } from 'calypso/components/localized-moment';
 import PostScheduler from './post-scheduler';
-import * as utils from 'state/posts/utils';
-import { getSelectedSite } from 'state/ui/selectors';
+import * as utils from 'calypso/state/posts/utils';
+import { getSelectedSite } from 'calypso/state/ui/selectors';
 
 /**
  * Style dependencies

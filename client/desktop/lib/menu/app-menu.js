@@ -6,12 +6,12 @@ const { dialog } = require( 'electron' ); // eslint-disable-line import/no-extra
 /**
  * Internal dependencies
  */
-const ipc = require( 'desktop/lib/calypso-commands' );
-const Config = require( 'desktop/lib/config' );
-const Settings = require( 'desktop/lib/settings' );
-const WindowManager = require( 'desktop/lib/window-manager' );
-const platform = require( 'desktop/lib/platform' );
-const AppQuit = require( 'desktop/lib/app-quit' );
+const ipc = require( 'calypso/desktop/lib/calypso-commands' );
+const Config = require( 'calypso/desktop/lib/config' );
+const Settings = require( 'calypso/desktop/lib/settings' );
+const WindowManager = require( 'calypso/desktop/lib/window-manager' );
+const platform = require( 'calypso/desktop/lib/platform' );
+const AppQuit = require( 'calypso/desktop/lib/app-quit' );
 const debugMenu = require( './debug-menu' );
 
 /**

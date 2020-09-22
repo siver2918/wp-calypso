@@ -10,17 +10,17 @@ import { localize } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import QueryPageTemplates from 'components/data/query-page-templates';
-import AccordionSection from 'components/accordion/section';
-import SelectDropdown from 'components/select-dropdown';
-import EditorDrawerLabel from 'post-editor/editor-drawer/label';
-import { getSelectedSiteId } from 'state/ui/selectors';
-import { getEditorPostId } from 'state/editor/selectors';
-import { getEditedPostValue } from 'state/posts/selectors';
-import { getPageTemplates } from 'state/page-templates/selectors';
-import { getSiteOption } from 'state/sites/selectors';
-import { editPost } from 'state/posts/actions';
-import EditorThemeHelp from 'post-editor/editor-theme-help';
+import QueryPageTemplates from 'calypso/components/data/query-page-templates';
+import AccordionSection from 'calypso/components/accordion/section';
+import SelectDropdown from 'calypso/components/select-dropdown';
+import EditorDrawerLabel from 'calypso/post-editor/editor-drawer/label';
+import { getSelectedSiteId } from 'calypso/state/ui/selectors';
+import { getEditorPostId } from 'calypso/state/editor/selectors';
+import { getEditedPostValue } from 'calypso/state/posts/selectors';
+import { getPageTemplates } from 'calypso/state/page-templates/selectors';
+import { getSiteOption } from 'calypso/state/sites/selectors';
+import { editPost } from 'calypso/state/posts/actions';
+import EditorThemeHelp from 'calypso/post-editor/editor-theme-help';
 
 /**
  * Style dependencies

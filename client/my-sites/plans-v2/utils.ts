@@ -30,9 +30,9 @@ import {
 	UPSELL_PRODUCT_MATRIX,
 } from './constants';
 import RecordsDetails from './records-details';
-import { addItems } from 'lib/cart/actions';
-import { jetpackProductItem } from 'lib/cart-values/cart-items';
-import isJetpackCloud from 'lib/jetpack/is-jetpack-cloud';
+import { addItems } from 'calypso/lib/cart/actions';
+import { jetpackProductItem } from 'calypso/lib/cart-values/cart-items';
+import isJetpackCloud from 'calypso/lib/jetpack/is-jetpack-cloud';
 import {
 	TERM_ANNUALLY,
 	TERM_MONTHLY,
@@ -40,21 +40,25 @@ import {
 	JETPACK_LEGACY_PLANS,
 	JETPACK_RESET_PLANS,
 	JETPACK_SECURITY_PLANS,
-} from 'lib/plans/constants';
-import { getPlan, getMonthlyPlanByYearly, planHasFeature } from 'lib/plans';
-import { getFeatureByKey, getFeatureCategoryByKey } from 'lib/plans/features-list';
+} from 'calypso/lib/plans/constants';
+import { getPlan, getMonthlyPlanByYearly, planHasFeature } from 'calypso/lib/plans';
+import { getFeatureByKey, getFeatureCategoryByKey } from 'calypso/lib/plans/features-list';
 import {
 	JETPACK_SEARCH_PRODUCTS,
 	JETPACK_PRODUCT_PRICE_MATRIX,
 	JETPACK_BACKUP_PRODUCTS,
-} from 'lib/products-values/constants';
-import { Product, JETPACK_PRODUCTS_LIST, objectIsProduct } from 'lib/products-values/products-list';
-import { getJetpackProductDisplayName } from 'lib/products-values/get-jetpack-product-display-name';
-import { getJetpackProductTagline } from 'lib/products-values/get-jetpack-product-tagline';
-import { getJetpackProductCallToAction } from 'lib/products-values/get-jetpack-product-call-to-action';
-import { getJetpackProductDescription } from 'lib/products-values/get-jetpack-product-description';
-import { getJetpackProductShortName } from 'lib/products-values/get-jetpack-product-short-name';
-import { MORE_FEATURES_LINK } from 'my-sites/plans-v2/constants';
+} from 'calypso/lib/products-values/constants';
+import {
+	Product,
+	JETPACK_PRODUCTS_LIST,
+	objectIsProduct,
+} from 'calypso/lib/products-values/products-list';
+import { getJetpackProductDisplayName } from 'calypso/lib/products-values/get-jetpack-product-display-name';
+import { getJetpackProductTagline } from 'calypso/lib/products-values/get-jetpack-product-tagline';
+import { getJetpackProductCallToAction } from 'calypso/lib/products-values/get-jetpack-product-call-to-action';
+import { getJetpackProductDescription } from 'calypso/lib/products-values/get-jetpack-product-description';
+import { getJetpackProductShortName } from 'calypso/lib/products-values/get-jetpack-product-short-name';
+import { MORE_FEATURES_LINK } from 'calypso/my-sites/plans-v2/constants';
 
 /**
  * Type dependencies
@@ -73,9 +77,9 @@ import type {
 	Plan,
 	JetpackPlanCardFeature,
 	JetpackPlanCardFeatureSection,
-} from 'lib/plans/types';
-import type { JetpackProductSlug } from 'lib/products-values/types';
-import type { SitePlan } from 'state/sites/selectors/get-site-plan';
+} from 'calypso/lib/plans/types';
+import type { JetpackProductSlug } from 'calypso/lib/products-values/types';
+import type { SitePlan } from 'calypso/state/sites/selectors/get-site-plan';
 
 /**
  * Duration utils.

@@ -6,10 +6,10 @@ import { get } from 'lodash';
 /**
  * Internal dependencies
  */
-import getSelectedEditor from 'state/selectors/get-selected-editor';
-import isClassicEditorForced from 'state/selectors/is-classic-editor-forced';
+import getSelectedEditor from 'calypso/state/selectors/get-selected-editor';
+import isClassicEditorForced from 'calypso/state/selectors/is-classic-editor-forced';
 
-import 'state/gutenberg-opt-in-out/init';
+import 'calypso/state/gutenberg-opt-in-out/init';
 
 export const isGutenbergOptInEnabled = ( state, siteId ) => {
 	return (

@@ -1,16 +1,16 @@
 /**
  * Internal dependencies
  */
-import config from 'config';
+import config from 'calypso/config';
 import {
 	getSiteSlug,
 	getSiteOption,
 	isJetpackSite,
 	hasJetpackSiteJetpackThemesExtendedFeatures,
-} from 'state/sites/selectors';
-import { oldShowcaseUrl } from 'state/themes/utils';
+} from 'calypso/state/sites/selectors';
+import { oldShowcaseUrl } from 'calypso/state/themes/utils';
 
-import 'state/themes/init';
+import 'calypso/state/themes/init';
 
 /**
  * Returns the URL for a given theme's details sheet.

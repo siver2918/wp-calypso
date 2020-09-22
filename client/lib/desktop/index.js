@@ -6,17 +6,17 @@ import debugFactory from 'debug';
 /**
  * Internal dependencies
  */
-import { newPost } from 'lib/paths';
+import { newPost } from 'calypso/lib/paths';
 import store from 'store';
-import user from 'lib/user';
+import user from 'calypso/lib/user';
 import { ipcRenderer as ipc } from 'electron'; // eslint-disable-line import/no-extraneous-dependencies
-import * as oAuthToken from 'lib/oauth-token';
-import userUtilities from 'lib/user/utils';
-import { getStatsPathForTab } from 'lib/route';
-import { getReduxStore } from 'lib/redux-bridge';
-import { isEditorIframeLoaded } from 'state/editor/selectors';
-import isNotificationsOpen from 'state/selectors/is-notifications-open';
-import { toggleNotificationsPanel, navigate } from 'state/ui/actions';
+import * as oAuthToken from 'calypso/lib/oauth-token';
+import userUtilities from 'calypso/lib/user/utils';
+import { getStatsPathForTab } from 'calypso/lib/route';
+import { getReduxStore } from 'calypso/lib/redux-bridge';
+import { isEditorIframeLoaded } from 'calypso/state/editor/selectors';
+import isNotificationsOpen from 'calypso/state/selectors/is-notifications-open';
+import { toggleNotificationsPanel, navigate } from 'calypso/state/ui/actions';
 import {
 	NOTIFY_DESKTOP_CANNOT_USE_EDITOR,
 	NOTIFY_DESKTOP_DID_REQUEST_SITE,
@@ -24,10 +24,10 @@ import {
 	NOTIFY_DESKTOP_SEND_TO_PRINTER,
 	NOTIFY_DESKTOP_NOTIFICATIONS_UNSEEN_COUNT_SET,
 	NOTIFY_DESKTOP_VIEW_POST_CLICKED,
-} from 'state/desktop/window-events';
-import { canCurrentUserManageSiteOptions } from 'state/sites/selectors';
-import { activateModule } from 'state/jetpack/modules/actions';
-import { requestSite } from 'state/sites/actions';
+} from 'calypso/state/desktop/window-events';
+import { canCurrentUserManageSiteOptions } from 'calypso/state/sites/selectors';
+import { activateModule } from 'calypso/state/jetpack/modules/actions';
+import { requestSite } from 'calypso/state/sites/actions';
 
 /**
  * Module variables

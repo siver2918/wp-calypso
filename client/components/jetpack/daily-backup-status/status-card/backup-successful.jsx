@@ -9,13 +9,13 @@ import { get, isArray } from 'lodash';
  * Internal dependencies
  */
 import { useTranslate } from 'i18n-calypso';
-import { applySiteOffset } from 'lib/site/timezone';
-import { useLocalizedMoment } from 'components/localized-moment';
-import { getSelectedSiteId } from 'state/ui/selectors';
-import getSiteTimezoneValue from 'state/selectors/get-site-timezone-value';
-import getSiteGmtOffset from 'state/selectors/get-site-gmt-offset';
-import getRewindCapabilities from 'state/selectors/get-rewind-capabilities';
-import ActivityCard from 'components/activity-card';
+import { applySiteOffset } from 'calypso/lib/site/timezone';
+import { useLocalizedMoment } from 'calypso/components/localized-moment';
+import { getSelectedSiteId } from 'calypso/state/ui/selectors';
+import getSiteTimezoneValue from 'calypso/state/selectors/get-site-timezone-value';
+import getSiteGmtOffset from 'calypso/state/selectors/get-site-gmt-offset';
+import getRewindCapabilities from 'calypso/state/selectors/get-rewind-capabilities';
+import ActivityCard from 'calypso/components/activity-card';
 import ActionButtons from '../action-buttons';
 import BackupChanges from '../backup-changes';
 import useGetDisplayDate from '../use-get-display-date';

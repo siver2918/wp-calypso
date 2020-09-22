@@ -10,13 +10,13 @@ import React, { FunctionComponent } from 'react';
  */
 import { Card } from '@automattic/components';
 import { ConnectionStatus, StatusState } from './connection-status';
-import { getSelectedSiteId } from 'state/ui/selectors';
-import DocumentHead from 'components/data/document-head';
-import getRewindState from 'state/selectors/get-rewind-state';
-import Main from 'components/main';
-import QueryRewindState from 'components/data/query-rewind-state';
-import SidebarNavigation from 'my-sites/sidebar-navigation';
-import StepProgress from 'components/step-progress';
+import { getSelectedSiteId } from 'calypso/state/ui/selectors';
+import DocumentHead from 'calypso/components/data/document-head';
+import getRewindState from 'calypso/state/selectors/get-rewind-state';
+import Main from 'calypso/components/main';
+import QueryRewindState from 'calypso/components/data/query-rewind-state';
+import SidebarNavigation from 'calypso/my-sites/sidebar-navigation';
+import StepProgress from 'calypso/components/step-progress';
 
 /**
  * Internal dependencies

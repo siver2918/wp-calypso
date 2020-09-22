@@ -10,17 +10,17 @@ import { isEmpty } from 'lodash';
 /**
  * Internal dependencies
  */
-import { abtest } from 'lib/abtest';
-import { isEcommercePlan } from 'lib/plans';
-import config from 'config';
-import ECommerceManageNudge from 'blocks/ecommerce-manage-nudge';
-import { getDomainsBySiteId } from 'state/sites/domains/selectors';
-import { getSitePlanSlug } from 'state/sites/selectors';
-import GoogleMyBusinessStatsNudge from 'blocks/google-my-business-stats-nudge';
-import isGoogleMyBusinessStatsNudgeVisibleSelector from 'state/selectors/is-google-my-business-stats-nudge-visible';
-import isUpworkStatsNudgeDismissed from 'state/selectors/is-upwork-stats-nudge-dismissed';
-import QuerySiteDomains from 'components/data/query-site-domains';
-import UpworkStatsNudge from 'blocks/upwork-stats-nudge';
+import { abtest } from 'calypso/lib/abtest';
+import { isEcommercePlan } from 'calypso/lib/plans';
+import config from 'calypso/config';
+import ECommerceManageNudge from 'calypso/blocks/ecommerce-manage-nudge';
+import { getDomainsBySiteId } from 'calypso/state/sites/domains/selectors';
+import { getSitePlanSlug } from 'calypso/state/sites/selectors';
+import GoogleMyBusinessStatsNudge from 'calypso/blocks/google-my-business-stats-nudge';
+import isGoogleMyBusinessStatsNudgeVisibleSelector from 'calypso/state/selectors/is-google-my-business-stats-nudge-visible';
+import isUpworkStatsNudgeDismissed from 'calypso/state/selectors/is-upwork-stats-nudge-dismissed';
+import QuerySiteDomains from 'calypso/components/data/query-site-domains';
+import UpworkStatsNudge from 'calypso/blocks/upwork-stats-nudge';
 
 class StatsBanners extends Component {
 	static propTypes = {

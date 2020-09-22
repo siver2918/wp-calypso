@@ -13,20 +13,24 @@ import { Button, Modal } from '@wordpress/components';
 /**
  * Internal dependencies
  */
-import isEditorDeprecationDialogShowing from 'state/selectors/is-editor-deprecation-dialog-showing';
-import { hideEditorDeprecationDialog } from 'state/ui/editor-deprecation-dialog/actions';
-import { getSelectedSiteId } from 'state/ui/selectors';
-import { setSelectedEditor } from 'state/selected-editor/actions';
+import isEditorDeprecationDialogShowing from 'calypso/state/selectors/is-editor-deprecation-dialog-showing';
+import { hideEditorDeprecationDialog } from 'calypso/state/ui/editor-deprecation-dialog/actions';
+import { getSelectedSiteId } from 'calypso/state/ui/selectors';
+import { setSelectedEditor } from 'calypso/state/selected-editor/actions';
 import { localize } from 'i18n-calypso';
-import { composeAnalytics, recordTracksEvent, withAnalytics } from 'state/analytics/actions';
-import { getEditorPostId } from 'state/editor/selectors';
-import { getEditedPostValue } from 'state/posts/selectors';
-import getGutenbergEditorUrl from 'state/selectors/get-gutenberg-editor-url';
-import InlineSupportLink from 'components/inline-support-link';
-import { localizeUrl } from 'lib/i18n-utils';
-import { preventWidows } from 'lib/formatting';
-import FormattedDate from 'components/formatted-date';
-import { withLocalizedMoment } from 'components/localized-moment';
+import {
+	composeAnalytics,
+	recordTracksEvent,
+	withAnalytics,
+} from 'calypso/state/analytics/actions';
+import { getEditorPostId } from 'calypso/state/editor/selectors';
+import { getEditedPostValue } from 'calypso/state/posts/selectors';
+import getGutenbergEditorUrl from 'calypso/state/selectors/get-gutenberg-editor-url';
+import InlineSupportLink from 'calypso/components/inline-support-link';
+import { localizeUrl } from 'calypso/lib/i18n-utils';
+import { preventWidows } from 'calypso/lib/formatting';
+import FormattedDate from 'calypso/components/formatted-date';
+import { withLocalizedMoment } from 'calypso/components/localized-moment';
 
 /**
  * Style dependencies

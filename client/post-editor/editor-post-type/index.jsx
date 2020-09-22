@@ -10,12 +10,12 @@ import { localize } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import { getEditedPost } from 'state/posts/selectors';
-import { getSelectedSiteId } from 'state/ui/selectors';
-import { getEditorPostId } from 'state/editor/selectors';
-import { getPostType } from 'state/post-types/selectors';
-import QueryPostTypes from 'components/data/query-post-types';
-import { decodeEntities } from 'lib/formatting';
+import { getEditedPost } from 'calypso/state/posts/selectors';
+import { getSelectedSiteId } from 'calypso/state/ui/selectors';
+import { getEditorPostId } from 'calypso/state/editor/selectors';
+import { getPostType } from 'calypso/state/post-types/selectors';
+import QueryPostTypes from 'calypso/components/data/query-post-types';
+import { decodeEntities } from 'calypso/lib/formatting';
 
 /**
  * Style dependencies

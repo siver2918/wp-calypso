@@ -10,21 +10,21 @@ import { connect } from 'react-redux';
 /**
  * Internal dependencies
  */
-import EditorDrawerWell from 'post-editor/editor-drawer-well';
+import EditorDrawerWell from 'calypso/post-editor/editor-drawer-well';
 import { reverseGeocode } from '../../lib/geocoding';
-import { recordEditorStat, recordEditorEvent } from 'state/posts/stats';
-import PostMetadata from 'lib/post-metadata';
+import { recordEditorStat, recordEditorEvent } from 'calypso/state/posts/stats';
+import PostMetadata from 'calypso/lib/post-metadata';
 import EditorLocationSearch from './search';
-import Notice from 'components/notice';
-import RemoveButton from 'components/remove-button';
+import Notice from 'calypso/components/notice';
+import RemoveButton from 'calypso/components/remove-button';
 import {
 	updatePostMetadata,
 	deletePostMetadata,
 	requestPostGeoImageUrl,
-} from 'state/posts/actions';
-import { getSelectedSiteId } from 'state/ui/selectors';
-import { getEditorPostId } from 'state/editor/selectors';
-import { getSitePost, getEditedPost } from 'state/posts/selectors';
+} from 'calypso/state/posts/actions';
+import { getSelectedSiteId } from 'calypso/state/ui/selectors';
+import { getEditorPostId } from 'calypso/state/editor/selectors';
+import { getSitePost, getEditedPost } from 'calypso/state/posts/selectors';
 
 /**
  * Style dependencies

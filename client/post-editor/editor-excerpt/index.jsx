@@ -8,13 +8,13 @@ import { localize } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import { recordEditorStat, recordEditorEvent } from 'state/posts/stats';
-import TrackInputChanges from 'components/track-input-changes';
-import FormTextarea from 'components/forms/form-textarea';
-import { getSelectedSiteId } from 'state/ui/selectors';
-import { getEditorPostId } from 'state/editor/selectors';
-import { getEditedPostValue } from 'state/posts/selectors';
-import { editPost } from 'state/posts/actions';
+import { recordEditorStat, recordEditorEvent } from 'calypso/state/posts/stats';
+import TrackInputChanges from 'calypso/components/track-input-changes';
+import FormTextarea from 'calypso/components/forms/form-textarea';
+import { getSelectedSiteId } from 'calypso/state/ui/selectors';
+import { getEditorPostId } from 'calypso/state/editor/selectors';
+import { getEditedPostValue } from 'calypso/state/posts/selectors';
+import { editPost } from 'calypso/state/posts/actions';
 
 class EditorExcerpt extends React.Component {
 	recordExcerptChangeStats = () => {

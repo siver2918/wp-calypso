@@ -9,9 +9,9 @@ import React from 'react';
  * Internal dependencies
  */
 import { Button, Card, CompactCard } from '@automattic/components';
-import LoadingPlaceholder from 'me/purchases/components/loading-placeholder';
-import { managePurchase } from 'me/purchases/paths';
-import titles from 'me/purchases/titles';
+import LoadingPlaceholder from 'calypso/me/purchases/components/loading-placeholder';
+import { managePurchase } from 'calypso/me/purchases/paths';
+import titles from 'calypso/me/purchases/titles';
 
 const CancelPurchaseLoadingPlaceholder = ( { purchaseId, siteSlug } ) => {
 	let path;

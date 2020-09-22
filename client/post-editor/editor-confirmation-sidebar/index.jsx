@@ -6,25 +6,25 @@ import React, { Component } from 'react';
 import classnames from 'classnames';
 import { connect } from 'react-redux';
 import { localize } from 'i18n-calypso';
-import Gridicon from 'components/gridicon';
+import Gridicon from 'calypso/components/gridicon';
 
 /**
  * Internal dependencies
  */
 import { Button } from '@automattic/components';
-import EditorPublishDate from 'post-editor/editor-publish-date';
-import EditorVisibility from 'post-editor/editor-visibility';
-import FormCheckbox from 'components/forms/form-checkbox';
-import FormLabel from 'components/forms/form-label';
+import EditorPublishDate from 'calypso/post-editor/editor-publish-date';
+import EditorVisibility from 'calypso/post-editor/editor-visibility';
+import FormCheckbox from 'calypso/components/forms/form-checkbox';
+import FormLabel from 'calypso/components/forms/form-label';
 import EditorConfirmationSidebarHeader from './header';
-import { editPost } from 'state/posts/actions';
-import { getSelectedSiteId } from 'state/ui/selectors';
-import { getEditorPostId, getEditorPublishButtonStatus } from 'state/editor/selectors';
+import { editPost } from 'calypso/state/posts/actions';
+import { getSelectedSiteId } from 'calypso/state/ui/selectors';
+import { getEditorPostId, getEditorPublishButtonStatus } from 'calypso/state/editor/selectors';
 import {
 	isEditedPostPasswordProtected,
 	isEditedPostPasswordProtectedWithValidPassword,
 	getEditedPost,
-} from 'state/posts/selectors';
+} from 'calypso/state/posts/selectors';
 
 /**
  * Style dependencies

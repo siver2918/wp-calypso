@@ -8,26 +8,26 @@ import { localize, useTranslate } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import DocumentHead from 'components/data/document-head';
-import { getSelectedSiteId } from 'state/ui/selectors';
-import ServerCredentialsForm from 'components/jetpack/server-credentials-form';
+import DocumentHead from 'calypso/components/data/document-head';
+import { getSelectedSiteId } from 'calypso/state/ui/selectors';
+import ServerCredentialsForm from 'calypso/components/jetpack/server-credentials-form';
 import { Card } from '@automattic/components';
-import FoldableCard from 'components/foldable-card';
-import getRewindState from 'state/selectors/get-rewind-state';
-import getSiteScanState from 'state/selectors/get-site-scan-state';
-import QueryJetpackScan from 'components/data/query-jetpack-scan';
-import QueryRewindState from 'components/data/query-rewind-state';
-import Main from 'components/main';
-import SidebarNavigation from 'my-sites/sidebar-navigation';
-import PageViewTracker from 'lib/analytics/page-view-tracker';
-import ExternalLink from 'components/external-link';
+import FoldableCard from 'calypso/components/foldable-card';
+import getRewindState from 'calypso/state/selectors/get-rewind-state';
+import getSiteScanState from 'calypso/state/selectors/get-site-scan-state';
+import QueryJetpackScan from 'calypso/components/data/query-jetpack-scan';
+import QueryRewindState from 'calypso/components/data/query-rewind-state';
+import Main from 'calypso/components/main';
+import SidebarNavigation from 'calypso/my-sites/sidebar-navigation';
+import PageViewTracker from 'calypso/lib/analytics/page-view-tracker';
+import ExternalLink from 'calypso/components/external-link';
 
 /**
  * Style dependencies
  */
 import './style.scss';
-import connectedIcon from 'assets/images/jetpack/connected.svg';
-import disconnectedIcon from 'assets/images/jetpack/disconnected.svg';
+import connectedIcon from 'calypso/assets/images/jetpack/connected.svg';
+import disconnectedIcon from 'calypso/assets/images/jetpack/disconnected.svg';
 
 const connectedProps = ( translate, connectedMessage ) => ( {
 	iconPath: connectedIcon,

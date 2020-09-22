@@ -12,16 +12,16 @@ import { localize } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import * as PostUtils from 'state/posts/utils';
-import EditorPermalink from 'post-editor/editor-permalink';
-import TrackInputChanges from 'components/track-input-changes';
-import TextareaAutosize from 'components/textarea-autosize';
-import { recordEditorStat, recordEditorEvent } from 'state/posts/stats';
-import { getSelectedSiteId } from 'state/ui/selectors';
-import areSitePermalinksEditable from 'state/selectors/are-site-permalinks-editable';
-import { isEditorNewPost, getEditorPostId } from 'state/editor/selectors';
-import { getEditedPost } from 'state/posts/selectors';
-import { editPost } from 'state/posts/actions';
+import * as PostUtils from 'calypso/state/posts/utils';
+import EditorPermalink from 'calypso/post-editor/editor-permalink';
+import TrackInputChanges from 'calypso/components/track-input-changes';
+import TextareaAutosize from 'calypso/components/textarea-autosize';
+import { recordEditorStat, recordEditorEvent } from 'calypso/state/posts/stats';
+import { getSelectedSiteId } from 'calypso/state/ui/selectors';
+import areSitePermalinksEditable from 'calypso/state/selectors/are-site-permalinks-editable';
+import { isEditorNewPost, getEditorPostId } from 'calypso/state/editor/selectors';
+import { getEditedPost } from 'calypso/state/posts/selectors';
+import { editPost } from 'calypso/state/posts/actions';
 
 /**
  * Style dependencies

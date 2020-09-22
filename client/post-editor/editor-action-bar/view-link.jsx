@@ -2,7 +2,7 @@
  * External dependencies
  */
 import React, { Fragment } from 'react';
-import Gridicon from 'components/gridicon';
+import Gridicon from 'calypso/components/gridicon';
 import { connect } from 'react-redux';
 import { localize } from 'i18n-calypso';
 import { includes } from 'lodash';
@@ -10,15 +10,15 @@ import { includes } from 'lodash';
 /**
  * Internal dependencies
  */
-import { decodeEntities } from 'lib/formatting';
-import { isPublished } from 'state/posts/utils';
-import Tooltip from 'components/tooltip';
+import { decodeEntities } from 'calypso/lib/formatting';
+import { isPublished } from 'calypso/state/posts/utils';
+import Tooltip from 'calypso/components/tooltip';
 import { Button } from '@automattic/components';
-import QueryPostTypes from 'components/data/query-post-types';
-import { getSelectedSiteId } from 'state/ui/selectors';
-import { getEditorPostId } from 'state/editor/selectors';
-import { getSitePost } from 'state/posts/selectors';
-import { getPostType } from 'state/post-types/selectors';
+import QueryPostTypes from 'calypso/components/data/query-post-types';
+import { getSelectedSiteId } from 'calypso/state/ui/selectors';
+import { getEditorPostId } from 'calypso/state/editor/selectors';
+import { getSitePost } from 'calypso/state/posts/selectors';
+import { getPostType } from 'calypso/state/post-types/selectors';
 
 class EditorViewLink extends React.Component {
 	state = {

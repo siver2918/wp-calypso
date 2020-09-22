@@ -1,8 +1,8 @@
 /**
  * Internal dependencies
  */
-import isSiteGoogleMyBusinessEligible from 'state/selectors/is-site-google-my-business-eligible';
-import { isRequestingSiteKeyrings, getSiteKeyrings } from 'state/site-keyrings/selectors';
+import isSiteGoogleMyBusinessEligible from 'calypso/state/selectors/is-site-google-my-business-eligible';
+import { isRequestingSiteKeyrings, getSiteKeyrings } from 'calypso/state/site-keyrings/selectors';
 
 /**
  * Returns true if the Google My Business (GMB) nudge should be visible in stats

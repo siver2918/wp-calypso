@@ -10,12 +10,12 @@ import { connect } from 'react-redux';
 /**
  * Internal dependencies
  */
-import { isPage, isPublished } from 'state/posts/utils';
-import HistoryButton from 'post-editor/editor-ground-control/history-button';
-import { recordEditorEvent, recordEditorStat } from 'state/posts/stats';
-import { getSelectedSiteId } from 'state/ui/selectors';
-import { getEditorPostId } from 'state/editor/selectors';
-import { getEditedPost } from 'state/posts/selectors';
+import { isPage, isPublished } from 'calypso/state/posts/utils';
+import HistoryButton from 'calypso/post-editor/editor-ground-control/history-button';
+import { recordEditorEvent, recordEditorStat } from 'calypso/state/posts/stats';
+import { getSelectedSiteId } from 'calypso/state/ui/selectors';
+import { getEditorPostId } from 'calypso/state/editor/selectors';
+import { getEditedPost } from 'calypso/state/posts/selectors';
 
 export const isSaveAvailableFn = ( {
 	isSaving = false,

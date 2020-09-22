@@ -4,17 +4,17 @@
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import Gridicon from 'components/gridicon';
+import Gridicon from 'calypso/components/gridicon';
 
 /**
  * Internal Dependencies
  */
-import EditorSlug from 'post-editor/editor-slug';
-import * as utils from 'state/posts/utils';
-import { getSelectedSiteId } from 'state/ui/selectors';
-import { getEditorPostId } from 'state/editor/selectors';
-import { getEditedPost } from 'state/posts/selectors';
-import { getSite } from 'state/sites/selectors';
+import EditorSlug from 'calypso/post-editor/editor-slug';
+import * as utils from 'calypso/state/posts/utils';
+import { getSelectedSiteId } from 'calypso/state/ui/selectors';
+import { getEditorPostId } from 'calypso/state/editor/selectors';
+import { getEditedPost } from 'calypso/state/posts/selectors';
+import { getSite } from 'calypso/state/sites/selectors';
 
 class EditorPageSlug extends PureComponent {
 	static propTypes = {

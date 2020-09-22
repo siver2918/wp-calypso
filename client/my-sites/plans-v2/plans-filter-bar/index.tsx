@@ -9,11 +9,11 @@ import classNames from 'classnames';
 /**
  * Internal dependencies
  */
-import SegmentedControl from 'components/segmented-control';
-import SelectDropdown from 'components/select-dropdown';
-import isJetpackCloud from 'lib/jetpack/is-jetpack-cloud';
-import { TERM_MONTHLY, TERM_ANNUALLY } from 'lib/plans/constants';
-import { masterbarIsVisible } from 'state/ui/selectors';
+import SegmentedControl from 'calypso/components/segmented-control';
+import SelectDropdown from 'calypso/components/select-dropdown';
+import isJetpackCloud from 'calypso/lib/jetpack/is-jetpack-cloud';
+import { TERM_MONTHLY, TERM_ANNUALLY } from 'calypso/lib/plans/constants';
+import { masterbarIsVisible } from 'calypso/state/ui/selectors';
 import { PRODUCT_TYPE_OPTIONS } from '../constants';
 import useDetectWindowBoundary from '../use-detect-window-boundary';
 

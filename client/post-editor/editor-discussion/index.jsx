@@ -10,16 +10,16 @@ import { connect } from 'react-redux';
 /**
  * Internal dependencies
  */
-import EditorFieldset from 'post-editor/editor-fieldset';
-import FormCheckbox from 'components/forms/form-checkbox';
-import InfoPopover from 'components/info-popover';
-import ExternalLink from 'components/external-link';
-import { recordEditorEvent, recordEditorStat } from 'state/posts/stats';
-import { editPost } from 'state/posts/actions';
-import { getSelectedSiteId } from 'state/ui/selectors';
-import { getEditorPostId, isEditorNewPost } from 'state/editor/selectors';
-import { getSite } from 'state/sites/selectors';
-import { getEditedPost } from 'state/posts/selectors';
+import EditorFieldset from 'calypso/post-editor/editor-fieldset';
+import FormCheckbox from 'calypso/components/forms/form-checkbox';
+import InfoPopover from 'calypso/components/info-popover';
+import ExternalLink from 'calypso/components/external-link';
+import { recordEditorEvent, recordEditorStat } from 'calypso/state/posts/stats';
+import { editPost } from 'calypso/state/posts/actions';
+import { getSelectedSiteId } from 'calypso/state/ui/selectors';
+import { getEditorPostId, isEditorNewPost } from 'calypso/state/editor/selectors';
+import { getSite } from 'calypso/state/sites/selectors';
+import { getEditedPost } from 'calypso/state/posts/selectors';
 
 /**
  * Style dependencies

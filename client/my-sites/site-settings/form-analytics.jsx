@@ -10,30 +10,36 @@ import { find, flowRight, partialRight, pick, overSome } from 'lodash';
  */
 import wrapSettingsForm from './wrap-settings-form';
 import { Card } from '@automattic/components';
-import ExternalLink from 'components/external-link';
-import SupportInfo from 'components/support-info';
-import UpsellNudge from 'blocks/upsell-nudge';
-import CompactFormToggle from 'components/forms/form-toggle/compact';
-import { getPlugins } from 'state/plugins/installed/selectors';
-import FormFieldset from 'components/forms/form-fieldset';
-import FormLabel from 'components/forms/form-label';
-import FormSettingExplanation from 'components/forms/form-setting-explanation';
-import FormTextInput from 'components/forms/form-text-input';
-import FormTextValidation from 'components/forms/form-input-validation';
+import ExternalLink from 'calypso/components/external-link';
+import SupportInfo from 'calypso/components/support-info';
+import UpsellNudge from 'calypso/blocks/upsell-nudge';
+import CompactFormToggle from 'calypso/components/forms/form-toggle/compact';
+import { getPlugins } from 'calypso/state/plugins/installed/selectors';
+import FormFieldset from 'calypso/components/forms/form-fieldset';
+import FormLabel from 'calypso/components/forms/form-label';
+import FormSettingExplanation from 'calypso/components/forms/form-setting-explanation';
+import FormTextInput from 'calypso/components/forms/form-text-input';
+import FormTextValidation from 'calypso/components/forms/form-input-validation';
 import FormAnalyticsStores from './form-analytics-stores';
-import JetpackModuleToggle from 'my-sites/site-settings/jetpack-module-toggle';
-import { isPremium, isBusiness, isEnterprise, isVipPlan, isEcommerce } from 'lib/products-values';
-import { recordTracksEvent } from 'state/analytics/actions';
-import { isJetpackSite } from 'state/sites/selectors';
-import getCurrentRouteParameterized from 'state/selectors/get-current-route-parameterized';
-import isJetpackModuleActive from 'state/selectors/is-jetpack-module-active';
-import { getSelectedSite, getSelectedSiteId } from 'state/ui/selectors';
-import { shouldShowOfferResetFlow } from 'lib/plans/config';
-import { FEATURE_GOOGLE_ANALYTICS, TYPE_PREMIUM, TERM_ANNUALLY } from 'lib/plans/constants';
-import { findFirstSimilarPlanKey } from 'lib/plans';
-import QueryJetpackModules from 'components/data/query-jetpack-modules';
-import SettingsSectionHeader from 'my-sites/site-settings/settings-section-header';
-import { localizeUrl } from 'lib/i18n-utils';
+import JetpackModuleToggle from 'calypso/my-sites/site-settings/jetpack-module-toggle';
+import {
+	isPremium,
+	isBusiness,
+	isEnterprise,
+	isVipPlan,
+	isEcommerce,
+} from 'calypso/lib/products-values';
+import { recordTracksEvent } from 'calypso/state/analytics/actions';
+import { isJetpackSite } from 'calypso/state/sites/selectors';
+import getCurrentRouteParameterized from 'calypso/state/selectors/get-current-route-parameterized';
+import isJetpackModuleActive from 'calypso/state/selectors/is-jetpack-module-active';
+import { getSelectedSite, getSelectedSiteId } from 'calypso/state/ui/selectors';
+import { shouldShowOfferResetFlow } from 'calypso/lib/plans/config';
+import { FEATURE_GOOGLE_ANALYTICS, TYPE_PREMIUM, TERM_ANNUALLY } from 'calypso/lib/plans/constants';
+import { findFirstSimilarPlanKey } from 'calypso/lib/plans';
+import QueryJetpackModules from 'calypso/components/data/query-jetpack-modules';
+import SettingsSectionHeader from 'calypso/my-sites/site-settings/settings-section-header';
+import { localizeUrl } from 'calypso/lib/i18n-utils';
 
 const validateGoogleAnalyticsCode = ( code ) => ! code || code.match( /^UA-\d+-\d+$/i );
 const hasPlanWithAnalytics = overSome(

@@ -5,9 +5,9 @@ import {
 	hasJetpackSiteJetpackThemesExtendedFeatures,
 	isJetpackSite,
 	isJetpackSiteMultiSite,
-} from 'state/sites/selectors';
+} from 'calypso/state/sites/selectors';
 
-import 'state/themes/init';
+import 'calypso/state/themes/init';
 
 /**
  * Determine whether wpcom themes should be removed from

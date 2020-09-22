@@ -23,16 +23,16 @@ import { camelCase } from 'lodash';
 /**
  * Internal dependencies
  */
-import notices from 'notices';
-import { validatePaymentDetails } from 'lib/checkout/validation';
-import useCountryList from 'my-sites/checkout/composite-checkout/hooks/use-country-list';
-import Field from 'my-sites/checkout/composite-checkout/components/field';
+import notices from 'calypso/notices';
+import { validatePaymentDetails } from 'calypso/lib/checkout/validation';
+import useCountryList from 'calypso/my-sites/checkout/composite-checkout/hooks/use-country-list';
+import Field from 'calypso/my-sites/checkout/composite-checkout/components/field';
 import {
 	SummaryLine,
 	SummaryDetails,
-} from 'my-sites/checkout/composite-checkout/components/summary-details';
-import { PaymentMethodLogos } from 'my-sites/checkout/composite-checkout/components/payment-method-logos';
-import { maskField } from 'lib/checkout';
+} from 'calypso/my-sites/checkout/composite-checkout/components/summary-details';
+import { PaymentMethodLogos } from 'calypso/my-sites/checkout/composite-checkout/components/payment-method-logos';
+import { maskField } from 'calypso/lib/checkout';
 import CountrySpecificPaymentFieldsUI from '../components/country-specific-payment-fields-ui';
 
 const debug = debugFactory( 'composite-checkout:ebanx-tef-payment-method' );

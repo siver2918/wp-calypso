@@ -9,8 +9,8 @@ import { localize } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import { openPostRevisionsDialog } from 'state/posts/revisions/actions';
-import { withAnalytics, recordTracksEvent } from 'state/analytics/actions';
+import { openPostRevisionsDialog } from 'calypso/state/posts/revisions/actions';
+import { withAnalytics, recordTracksEvent } from 'calypso/state/analytics/actions';
 
 const HistoryButton = ( { translate, selectHistory } ) => (
 	<div className="editor-ground-control__history">

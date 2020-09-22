@@ -12,10 +12,10 @@ import { translate } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import LikeButton from 'blocks/like-button/button';
-import { recordAction, recordGaEvent, recordTrack } from 'reader/stats';
-import { likeComment, unlikeComment } from 'state/comments/actions';
-import { getCommentLike } from 'state/comments/selectors';
+import LikeButton from 'calypso/blocks/like-button/button';
+import { recordAction, recordGaEvent, recordTrack } from 'calypso/reader/stats';
+import { likeComment, unlikeComment } from 'calypso/state/comments/actions';
+import { getCommentLike } from 'calypso/state/comments/selectors';
 
 class CommentLikeButtonContainer extends React.Component {
 	constructor() {

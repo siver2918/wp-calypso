@@ -6,9 +6,9 @@ const { app, ipcMain: ipc } = require( 'electron' ); // eslint-disable-line impo
 /**
  * Internal dependencies
  */
-const menu = require( 'desktop/lib/menu' );
-const platform = require( 'desktop/lib/platform' );
-const state = require( 'desktop/lib/state' );
+const menu = require( 'calypso/desktop/lib/menu' );
+const platform = require( 'calypso/desktop/lib/platform' );
+const state = require( 'calypso/desktop/lib/state' );
 
 module.exports = function ( mainWindow ) {
 	menu.set( app, mainWindow );

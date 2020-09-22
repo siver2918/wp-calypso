@@ -11,16 +11,16 @@ import { get } from 'lodash';
 /**
  * Internal dependencies
  */
-import GlobalNoticesContainer from 'components/global-notices/container';
-import Notice from 'components/notice';
-import { getSelectedSiteId, getSelectedSite } from 'state/ui/selectors';
-import { getEditorPostId } from 'state/editor/selectors';
-import { getEditedPost } from 'state/posts/selectors';
-import { getPostType } from 'state/post-types/selectors';
-import QueryPostTypes from 'components/data/query-post-types';
-import { withLocalizedMoment } from 'components/localized-moment';
-import { setLayoutFocus } from 'state/ui/layout-focus/actions';
-import { recordTracksEvent } from 'state/analytics/actions';
+import GlobalNoticesContainer from 'calypso/components/global-notices/container';
+import Notice from 'calypso/components/notice';
+import { getSelectedSiteId, getSelectedSite } from 'calypso/state/ui/selectors';
+import { getEditorPostId } from 'calypso/state/editor/selectors';
+import { getEditedPost } from 'calypso/state/posts/selectors';
+import { getPostType } from 'calypso/state/post-types/selectors';
+import QueryPostTypes from 'calypso/components/data/query-post-types';
+import { withLocalizedMoment } from 'calypso/components/localized-moment';
+import { setLayoutFocus } from 'calypso/state/ui/layout-focus/actions';
+import { recordTracksEvent } from 'calypso/state/analytics/actions';
 
 export class EditorNotice extends Component {
 	static propTypes = {

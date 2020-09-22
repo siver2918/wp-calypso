@@ -2,7 +2,7 @@
  * External dependencies
  */
 import debugModule from 'debug';
-import config from 'config';
+import config from 'calypso/config';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { flowRight, get, includes, omit } from 'lodash';
@@ -13,17 +13,17 @@ import { localize } from 'i18n-calypso';
  */
 import HelpButton from './help-button';
 import JetpackConnectNotices from './jetpack-connect-notices';
-import LoggedOutFormLinkItem from 'components/logged-out-form/link-item';
-import LoggedOutFormLinks from 'components/logged-out-form/links';
+import LoggedOutFormLinkItem from 'calypso/components/logged-out-form/link-item';
+import LoggedOutFormLinks from 'calypso/components/logged-out-form/links';
 import page from 'page';
-import versionCompare from 'lib/version-compare';
+import versionCompare from 'calypso/lib/version-compare';
 import { redirect } from './utils';
-import { addQueryArgs, externalRedirect } from 'lib/route';
-import { checkUrl, dismissUrl } from 'state/jetpack-connect/actions';
-import { getConnectingSite, getJetpackSiteByUrl } from 'state/jetpack-connect/selectors';
-import { isRequestingSites } from 'state/sites/selectors';
+import { addQueryArgs, externalRedirect } from 'calypso/lib/route';
+import { checkUrl, dismissUrl } from 'calypso/state/jetpack-connect/actions';
+import { getConnectingSite, getJetpackSiteByUrl } from 'calypso/state/jetpack-connect/selectors';
+import { isRequestingSites } from 'calypso/state/sites/selectors';
 import { clearPlan, retrieveMobileRedirect, retrievePlan } from './persistence-utils';
-import { recordTracksEvent } from 'state/analytics/actions';
+import { recordTracksEvent } from 'calypso/state/analytics/actions';
 
 import { IS_DOT_COM_GET_SEARCH, MINIMUM_JETPACK_VERSION } from './constants';
 import {

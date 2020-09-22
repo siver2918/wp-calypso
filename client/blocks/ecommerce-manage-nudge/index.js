@@ -5,17 +5,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { localize } from 'i18n-calypso';
 import PropTypes from 'prop-types';
-import Gridicon from 'components/gridicon';
+import Gridicon from 'calypso/components/gridicon';
 
 /**
  * Internal Dependencies
  */
 import { Card } from '@automattic/components';
 import isECommerceManageNudgeDismissed from './selectors';
-import QueryPreferences from 'components/data/query-preferences';
+import QueryPreferences from 'calypso/components/data/query-preferences';
 import { dismissNudge } from './actions';
-import { enhanceWithSiteType, recordTracksEvent } from 'state/analytics/actions';
-import { withEnhancers } from 'state/utils';
+import { enhanceWithSiteType, recordTracksEvent } from 'calypso/state/analytics/actions';
+import { withEnhancers } from 'calypso/state/utils';
 
 /**
  * Style dependencies

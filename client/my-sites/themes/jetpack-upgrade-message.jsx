@@ -9,10 +9,10 @@ import { localize } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import Main from 'components/main';
-import SidebarNavigation from 'my-sites/sidebar-navigation';
-import JetpackManageErrorPage from 'my-sites/jetpack-manage-error-page';
-import { getSiteAdminUrl } from 'state/sites/selectors';
+import Main from 'calypso/components/main';
+import SidebarNavigation from 'calypso/my-sites/sidebar-navigation';
+import JetpackManageErrorPage from 'calypso/my-sites/jetpack-manage-error-page';
+import { getSiteAdminUrl } from 'calypso/state/sites/selectors';
 
 const JetpackUpgradeMessage = ( { siteId, translate, adminUrl } ) => (
 	<Main className="themes">

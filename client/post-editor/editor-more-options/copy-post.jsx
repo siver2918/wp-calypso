@@ -6,20 +6,20 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { localize } from 'i18n-calypso';
 import page from 'page';
-import Gridicon from 'components/gridicon';
+import Gridicon from 'calypso/components/gridicon';
 
 /**
  * Internal dependencies
  */
-import { getSiteSlug } from 'state/sites/selectors';
-import { getSelectedSiteId } from 'state/ui/selectors';
-import { getEditedPostValue } from 'state/posts/selectors';
-import { getEditorPostId } from 'state/editor/selectors';
-import AccordionSection from 'components/accordion/section';
+import { getSiteSlug } from 'calypso/state/sites/selectors';
+import { getSelectedSiteId } from 'calypso/state/ui/selectors';
+import { getEditedPostValue } from 'calypso/state/posts/selectors';
+import { getEditorPostId } from 'calypso/state/editor/selectors';
+import AccordionSection from 'calypso/components/accordion/section';
 import { Button, Dialog } from '@automattic/components';
-import EditorDrawerLabel from 'post-editor/editor-drawer/label';
-import FormSectionHeading from 'components/forms/form-section-heading';
-import PostSelector from 'my-sites/post-selector';
+import EditorDrawerLabel from 'calypso/post-editor/editor-drawer/label';
+import FormSectionHeading from 'calypso/components/forms/form-section-heading';
+import PostSelector from 'calypso/my-sites/post-selector';
 
 /**
  * Style dependencies

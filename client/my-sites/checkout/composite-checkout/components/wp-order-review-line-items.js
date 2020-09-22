@@ -19,9 +19,9 @@ import { useTranslate } from 'i18n-calypso';
 import joinClasses from './join-classes';
 import { useHasDomainsInCart } from '../hooks/has-domains';
 import { ItemVariationPicker } from './item-variation-picker';
-import { isGSuiteProductSlug } from 'lib/gsuite';
-import { planMatches } from 'lib/plans';
-import { GROUP_WPCOM, TERM_ANNUALLY, TERM_BIENNIALLY } from 'lib/plans/constants';
+import { isGSuiteProductSlug } from 'calypso/lib/gsuite';
+import { planMatches } from 'calypso/lib/plans';
+import { GROUP_WPCOM, TERM_ANNUALLY, TERM_BIENNIALLY } from 'calypso/lib/plans/constants';
 
 export function WPOrderReviewSection( { children, className } ) {
 	return <div className={ joinClasses( [ className, 'order-review-section' ] ) }>{ children }</div>;

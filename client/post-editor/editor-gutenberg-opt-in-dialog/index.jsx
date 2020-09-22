@@ -4,16 +4,16 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Gridicon from 'components/gridicon';
+import Gridicon from 'calypso/components/gridicon';
 
 /**
  * Internal dependencies
  */
-import isGutenbergOptInDialogShowing from 'state/selectors/is-gutenberg-opt-in-dialog-showing';
-import { hideGutenbergOptInDialog } from 'state/ui/gutenberg-opt-in-dialog/actions';
-import { getSelectedSiteId } from 'state/ui/selectors';
-import getWpAdminClassicEditorRedirectionUrl from 'state/selectors/get-wp-admin-classic-editor-redirection-url';
-import { setSelectedEditor } from 'state/selected-editor/actions';
+import isGutenbergOptInDialogShowing from 'calypso/state/selectors/is-gutenberg-opt-in-dialog-showing';
+import { hideGutenbergOptInDialog } from 'calypso/state/ui/gutenberg-opt-in-dialog/actions';
+import { getSelectedSiteId } from 'calypso/state/ui/selectors';
+import getWpAdminClassicEditorRedirectionUrl from 'calypso/state/selectors/get-wp-admin-classic-editor-redirection-url';
+import { setSelectedEditor } from 'calypso/state/selected-editor/actions';
 import { localize } from 'i18n-calypso';
 import { Button, Dialog } from '@automattic/components';
 import {
@@ -22,13 +22,13 @@ import {
 	recordTracksEvent,
 	withAnalytics,
 	bumpStat,
-} from 'state/analytics/actions';
-import { getEditorPostId } from 'state/editor/selectors';
-import { getEditedPostValue } from 'state/posts/selectors';
-import getGutenbergEditorUrl from 'state/selectors/get-gutenberg-editor-url';
-import isSiteAutomatedTransfer from 'state/selectors/is-site-automated-transfer';
-import isPrivateSite from 'state/selectors/is-private-site';
-import isGutenbergOptInEnabled from 'state/selectors/is-gutenberg-opt-in-enabled';
+} from 'calypso/state/analytics/actions';
+import { getEditorPostId } from 'calypso/state/editor/selectors';
+import { getEditedPostValue } from 'calypso/state/posts/selectors';
+import getGutenbergEditorUrl from 'calypso/state/selectors/get-gutenberg-editor-url';
+import isSiteAutomatedTransfer from 'calypso/state/selectors/is-site-automated-transfer';
+import isPrivateSite from 'calypso/state/selectors/is-private-site';
+import isGutenbergOptInEnabled from 'calypso/state/selectors/is-gutenberg-opt-in-enabled';
 
 /**
  * Style dependencies

@@ -9,9 +9,9 @@ import { localize } from 'i18n-calypso';
 /**
  * Internal dependencies
  */
-import { countWords } from 'lib/text-utils';
-import { getCurrentUserLocale } from 'state/current-user/selectors';
-import { getEditorRawContent } from 'state/editor/selectors';
+import { countWords } from 'calypso/lib/text-utils';
+import { getCurrentUserLocale } from 'calypso/state/current-user/selectors';
+import { getEditorRawContent } from 'calypso/state/editor/selectors';
 
 /**
  * Style dependencies

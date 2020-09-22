@@ -6,20 +6,20 @@ import { localize } from 'i18n-calypso';
 import React from 'react';
 import classnames from 'classnames';
 import { connect } from 'react-redux';
-import Gridicon from 'components/gridicon';
+import Gridicon from 'calypso/components/gridicon';
 import { get, isNull } from 'lodash';
 
 /**
  * Internal dependencies
  */
-import accept from 'lib/accept';
+import accept from 'calypso/lib/accept';
 import { Button } from '@automattic/components';
-import { getSelectedSiteId } from 'state/ui/selectors';
-import { getEditorPostId } from 'state/editor/selectors';
-import { getEditedPost } from 'state/posts/selectors';
-import { trashPost } from 'state/posts/actions';
-import { getCurrentUserId } from 'state/current-user/selectors';
-import canCurrentUser from 'state/selectors/can-current-user';
+import { getSelectedSiteId } from 'calypso/state/ui/selectors';
+import { getEditorPostId } from 'calypso/state/editor/selectors';
+import { getEditedPost } from 'calypso/state/posts/selectors';
+import { trashPost } from 'calypso/state/posts/actions';
+import { getCurrentUserId } from 'calypso/state/current-user/selectors';
+import canCurrentUser from 'calypso/state/selectors/can-current-user';
 
 /**
  * Style dependencies

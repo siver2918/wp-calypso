@@ -19,10 +19,10 @@ import {
 /**
  * Internal dependencies
  */
-import { showStripeModalAuth } from 'lib/stripe';
-import { validatePaymentDetails } from 'lib/checkout/validation';
-import { useCart } from 'my-sites/checkout/composite-checkout/cart-provider';
-import { paymentMethodClassName } from 'lib/cart-values';
+import { showStripeModalAuth } from 'calypso/lib/stripe';
+import { validatePaymentDetails } from 'calypso/lib/checkout/validation';
+import { useCart } from 'calypso/my-sites/checkout/composite-checkout/cart-provider';
+import { paymentMethodClassName } from 'calypso/lib/cart-values';
 
 const debug = debugFactory( 'calypso:composite-checkout:credit-card' );
 

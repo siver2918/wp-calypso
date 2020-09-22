@@ -9,10 +9,10 @@ const hotMiddleware = require( 'webpack-hot-middleware' );
 /* eslint-enable import/no-extraneous-dependencies */
 
 const chalk = require( 'chalk' );
-const webpackConfig = require( 'webpack.config' );
+const webpackConfig = require( 'calypso/webpack.config' );
 const { execSync } = require( 'child_process' );
 
-const config = require( 'config' );
+const config = require( 'calypso/config' );
 
 const protocol = process.env.PROTOCOL || config( 'protocol' );
 const host = process.env.HOST || config( 'hostname' );

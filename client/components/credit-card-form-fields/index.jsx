@@ -7,21 +7,21 @@ import React, { useState } from 'react';
 import { localize } from 'i18n-calypso';
 import classNames from 'classnames';
 import { isEmpty, noop } from 'lodash';
-import notices from 'notices';
+import notices from 'calypso/notices';
 import { CardCvcElement, CardExpiryElement, CardNumberElement } from 'react-stripe-elements';
 
 /**
  * Internal dependencies
  */
-import CreditCardNumberInput from 'components/upgrades/credit-card-number-input';
-import PaymentCountrySelect from 'components/payment-country-select';
-import CountrySpecificPaymentFields from 'my-sites/checkout/checkout/country-specific-payment-fields';
-import { Input } from 'my-sites/domains/components/form';
-import InfoPopover from 'components/info-popover';
-import { maskField, unmaskField, getCreditCardType } from 'lib/checkout';
-import { shouldRenderAdditionalCountryFields } from 'lib/checkout/processor-specific';
-import FormInputValidation from 'components/forms/form-input-validation';
-import { useStripe } from 'lib/stripe';
+import CreditCardNumberInput from 'calypso/components/upgrades/credit-card-number-input';
+import PaymentCountrySelect from 'calypso/components/payment-country-select';
+import CountrySpecificPaymentFields from 'calypso/my-sites/checkout/checkout/country-specific-payment-fields';
+import { Input } from 'calypso/my-sites/domains/components/form';
+import InfoPopover from 'calypso/components/info-popover';
+import { maskField, unmaskField, getCreditCardType } from 'calypso/lib/checkout';
+import { shouldRenderAdditionalCountryFields } from 'calypso/lib/checkout/processor-specific';
+import FormInputValidation from 'calypso/components/forms/form-input-validation';
+import { useStripe } from 'calypso/lib/stripe';
 
 const CardNumberElementWithValidation = withStripeElementValidation( CardNumberElement );
 const CardExpiryElementWithValidation = withStripeElementValidation( CardExpiryElement );
@@ -35,8 +35,8 @@ import './style.scss';
 /**
  * Image assets
  */
-import creditCardSecurityBackImage from 'assets/images/upgrades/cc-cvv-back.svg';
-import creditCardSecurityFrontImage from 'assets/images/upgrades/cc-cvv-front.svg';
+import creditCardSecurityBackImage from 'calypso/assets/images/upgrades/cc-cvv-back.svg';
+import creditCardSecurityFrontImage from 'calypso/assets/images/upgrades/cc-cvv-front.svg';
 
 function CvvPopover( { translate, card } ) {
 	const brand = getCreditCardType( card.number );

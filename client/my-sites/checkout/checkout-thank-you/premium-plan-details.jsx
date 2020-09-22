@@ -11,19 +11,19 @@ import { useTranslate } from 'i18n-calypso';
  */
 import CustomDomainPurchaseDetail from './custom-domain-purchase-detail';
 import GoogleAppsDetails from './google-apps-details';
-import { isWordadsInstantActivationEligible } from 'lib/ads/utils';
-import { isPremium, isGoogleApps } from 'lib/products-values';
-import { newPost } from 'lib/paths';
-import PurchaseDetail from 'components/purchase-detail';
+import { isWordadsInstantActivationEligible } from 'calypso/lib/ads/utils';
+import { isPremium, isGoogleApps } from 'calypso/lib/products-values';
+import { newPost } from 'calypso/lib/paths';
+import PurchaseDetail from 'calypso/components/purchase-detail';
 
 /**
  * Image dependencies
  */
-import analyticsImage from 'assets/images/illustrations/google-analytics.svg';
-import advertisingRemovedImage from 'assets/images/upgrades/removed-advertising.svg';
-import customizeThemeImage from 'assets/images/upgrades/customize-theme.svg';
-import mediaPostImage from 'assets/images/upgrades/media-post.svg';
-import wordAdsImage from 'assets/images/upgrades/word-ads.svg';
+import analyticsImage from 'calypso/assets/images/illustrations/google-analytics.svg';
+import advertisingRemovedImage from 'calypso/assets/images/upgrades/removed-advertising.svg';
+import customizeThemeImage from 'calypso/assets/images/upgrades/customize-theme.svg';
+import mediaPostImage from 'calypso/assets/images/upgrades/media-post.svg';
+import wordAdsImage from 'calypso/assets/images/upgrades/word-ads.svg';
 
 const PremiumPlanDetails = ( {
 	selectedSite,
