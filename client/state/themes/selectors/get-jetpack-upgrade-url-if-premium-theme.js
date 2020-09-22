@@ -1,11 +1,7 @@
 /**
  * Internal dependencies
  */
-<<<<<<< HEAD
-import { shouldShowOfferResetFlow } from 'lib/plans/config';
-=======
-import { shouldShowOfferResetFlow } from 'calypso/lib/abtest/getters';
->>>>>>> Auto-fix rule wpcalypso/no-package-relative-imports
+import { shouldShowOfferResetFlow } from 'calypso/lib/plans/config';
 import {
 	FEATURE_UNLIMITED_PREMIUM_THEMES,
 	PLAN_JETPACK_SECURITY_REALTIME,
