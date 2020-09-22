@@ -483,15 +483,22 @@ export function getAllOptionsFromSlug( slug: string ): string[] | null {
  * @param {string} siteSlug Selected site
  * @param {string | string[]} products Slugs of the products to add to the cart
  */
-export function checkout( siteSlug: string, products: string | string[] ): void {
+export function checkout(
+	siteSlug: string,
+	products: string | string[],
+	queryString?: string
+): void {
 	const productsArray = isArray( products ) ? products : [ products ];
 
 	// There is not siteSlug, we need to redirect the user to the site selection
 	// step of the flow. Since purchases of multiple products are allowed, we need
 	// to pass all products separated by comma in the URL.
-	const path = siteSlug
+	let path = siteSlug
 		? `/checkout/${ siteSlug }`
 		: `/jetpack/connect/${ productsArray.join( ',' ) }`;
+	if ( queryString ) {
+		path += `?${ queryString }`;
+	}
 
 	if ( isJetpackCloud() ) {
 		window.location.href = `https://wordpress.com${ path }`;
@@ -512,9 +519,18 @@ export function checkout( siteSlug: string, products: string | string[] ): void 
  *
  * @returns {string} The path to the Selector page
  */
-export function getPathToSelector( rootUrl: string, duration?: Duration, siteSlug?: string ) {
+export function getPathToSelector(
+	rootUrl: string,
+	duration?: Duration,
+	siteSlug?: string,
+	queryString?: string
+) {
 	const strDuration = duration ? durationToString( duration ) : null;
-	return [ rootUrl, strDuration, siteSlug ].filter( Boolean ).join( '/' );
+	const path = [ rootUrl, strDuration, siteSlug ].filter( Boolean ).join( '/' );
+	if ( queryString ) {
+		return `${ path }?${ queryString }`;
+	}
+	return path;
 }
 
 /**
@@ -532,10 +548,17 @@ export function getPathToDetails(
 	rootUrl: string,
 	productSlug: string,
 	duration: Duration,
-	siteSlug?: string
+	siteSlug?: string,
+	queryString?: string
 ) {
 	const strDuration = durationToString( duration );
-	return [ rootUrl, productSlug, strDuration, 'details', siteSlug ].filter( Boolean ).join( '/' );
+	const path = [ rootUrl, productSlug, strDuration, 'details', siteSlug ]
+		.filter( Boolean )
+		.join( '/' );
+	if ( queryString ) {
+		return `${ path }?${ queryString }`;
+	}
+	return path;
 }
 
 /**
@@ -553,10 +576,17 @@ export function getPathToUpsell(
 	rootUrl: string,
 	productSlug: string,
 	duration: Duration,
-	siteSlug?: string
+	siteSlug?: string,
+	queryString?: string
 ) {
 	const strDuration = durationToString( duration );
-	return [ rootUrl, productSlug, strDuration, 'additions', siteSlug ].filter( Boolean ).join( '/' );
+	const path = [ rootUrl, productSlug, strDuration, 'additions', siteSlug ]
+		.filter( Boolean )
+		.join( '/' );
+	if ( queryString ) {
+		return `${ path }?${ queryString }`;
+	}
+	return path;
 }
 
 /**

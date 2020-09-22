@@ -21,11 +21,12 @@ export const productSelect = ( rootUrl: string ) => ( context: PageJS.Context, n
 	const siteId = getSelectedSiteId( state );
 	const duration =
 		( siteId && ( getCurrentPlanTerm( state, siteId ) as Duration ) ) || TERM_ANNUALLY;
-
+	const queryString = context.querystring;
 	context.primary = (
 		<SelectorPage
 			defaultDuration={ duration }
 			rootUrl={ rootUrl }
+			queryString={ queryString }
 			header={ context.header }
 			footer={ context.footer }
 		/>
@@ -38,11 +39,13 @@ export const productDetails = ( rootUrl: string ) => (
 	next: Function
 ) => {
 	const productType: string = context.params.product;
-	const duration = stringToDuration( context.params.duration );
+	const duration = stringToDuration( context.params.duration ) || TERM_ANNUALLY;
+	const queryString = context.querystring;
 	context.primary = (
 		<DetailsPage
 			productSlug={ productType }
 			duration={ duration }
+			queryString={ queryString }
 			rootUrl={ rootUrl }
 			header={ context.header }
 		/>
@@ -52,11 +55,13 @@ export const productDetails = ( rootUrl: string ) => (
 
 export const productUpsell = ( rootUrl: string ) => ( context: PageJS.Context, next: Function ) => {
 	const productSlug: string = context.params.product;
-	const duration = stringToDuration( context.params.duration );
+	const duration = stringToDuration( context.params.duration ) || TERM_ANNUALLY;
+	const queryString = context.querystring;
 	context.primary = (
 		<UpsellPage
 			productSlug={ productSlug }
 			duration={ duration }
+			queryString={ queryString }
 			rootUrl={ rootUrl }
 			header={ context.header }
 		/>
