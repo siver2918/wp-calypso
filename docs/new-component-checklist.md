@@ -59,7 +59,7 @@ The file of the example component should reside into a `/docs` folder in the sam
 
 By convention the name of example component should ends with the `Example` word so for in the Popover case the name should be `PopoverExample`. To show the correct name on `/devdocs/design`, define the `displayName` for the example component:
 
-```es6
+```js
 class PopoverExample extends PureComponent {
 	static displayName = 'PopoverExample';
 	// ...
