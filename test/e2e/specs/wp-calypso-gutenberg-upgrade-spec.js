@@ -3,10 +3,17 @@
  */
 import assert from 'assert';
 import config from 'config';
+<<<<<<< HEAD
 import { times } from 'lodash';
 // import { By } from 'selenium-webdriver';
 // import { join } from 'path';
 // import { promises as fs } from 'fs';
+=======
+import { times, sample } from 'lodash';
+import { By } from 'selenium-webdriver';
+import { join } from 'path';
+import { promises as fs } from 'fs';
+>>>>>>> Setup and fill-in the Slidehow and Gallery Masonry block with sample images
 
 /**
  * Internal dependencies
@@ -52,11 +59,11 @@ let sampleImages;
 
 const blockInits = new Map()
 	.set( TiledGalleryBlockComponent, ( block ) => block.uploadImages( sampleImages ) )
-	.set( ContactFormBlockComponent, async ( block ) => {
-		await block.openEditSettings();
-		await block.insertEmail( 'testing@automattic.com' );
-		await block.insertSubject( "Let's work together" );
-	} );
+	.set( ContactFormBlockComponent, () =>
+		gEditorComponent.insertContactForm( 'testing@automattic.com', "Let's work together" )
+	)
+	.set( SlideshowBlockComponent, ( block ) => block.uploadImages( sampleImages ) )
+	.set( GalleryMasonryBlockComponent, ( block ) => block.uploadImages( sampleImages ) );
 
 /**
  * Wrapper that provides an uniform API for creating blocks on the page. It uses the `inits`
