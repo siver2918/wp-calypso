@@ -55,6 +55,7 @@ import { getJetpackProductCallToAction } from 'lib/products-values/get-jetpack-p
 import { getJetpackProductDescription } from 'lib/products-values/get-jetpack-product-description';
 import { getJetpackProductShortName } from 'lib/products-values/get-jetpack-product-short-name';
 import { MORE_FEATURES_LINK } from 'my-sites/plans-v2/constants';
+import { addQueryArgs } from 'lib/route';
 
 /**
  * Type dependencies
@@ -66,6 +67,7 @@ import type {
 	DurationString,
 	SelectorProductFeaturesItem,
 	SelectorProductFeaturesSection,
+	QueryArgs,
 } from './types';
 import type {
 	JetpackRealtimePlan,
@@ -482,30 +484,27 @@ export function getAllOptionsFromSlug( slug: string ): string[] | null {
  *
  * @param {string} siteSlug Selected site
  * @param {string | string[]} products Slugs of the products to add to the cart
- * @param {string} queryString (optional) Additional query params appended to url (ie. for affiliate tracking)
+ * @param {QueryArgs} urlQueryArgs Additional query params appended to url (ie. for affiliate tracking, or whatever)
  */
 export function checkout(
 	siteSlug: string,
 	products: string | string[],
-	queryString?: string
+	urlQueryArgs: QueryArgs
 ): void {
 	const productsArray = isArray( products ) ? products : [ products ];
 
 	// There is not siteSlug, we need to redirect the user to the site selection
 	// step of the flow. Since purchases of multiple products are allowed, we need
 	// to pass all products separated by comma in the URL.
-	let path = siteSlug
+	const path = siteSlug
 		? `/checkout/${ siteSlug }`
 		: `/jetpack/connect/${ productsArray.join( ',' ) }`;
-	if ( queryString ) {
-		path += `?${ queryString }`;
-	}
 
 	if ( isJetpackCloud() ) {
-		window.location.href = `https://wordpress.com${ path }`;
+		window.location.href = addQueryArgs( urlQueryArgs, `https://wordpress.com${ path }` );
 	} else {
 		addItems( productsArray.map( jetpackProductItem ) );
-		page.redirect( path );
+		page.redirect( addQueryArgs( urlQueryArgs, path ) );
 	}
 }
 
@@ -515,24 +514,22 @@ export function checkout(
  * '/plans/monthly/site-slug', '/plans/site-slug', or just '/plans'.
  *
  * @param {string} rootUrl Base URL that relates to the current flow (WordPress.com vs Jetpack Connect).
+ * @param {QueryArgs} urlQueryArgs URL query params appended to url (ie. for affiliate tracking, or whatever), or {} if none.
  * @param {Duration} duration Monthly or annual
  * @param {string} siteSlug (optional) The slug of the selected site
- * @param {string} queryString (optional) Additional query params appended to url (ie. for affiliate tracking)
  *
  * @returns {string} The path to the Selector page
  */
 export function getPathToSelector(
 	rootUrl: string,
+	urlQueryArgs: QueryArgs,
 	duration?: Duration,
-	siteSlug?: string,
-	queryString?: string
+	siteSlug?: string
 ) {
 	const strDuration = duration ? durationToString( duration ) : null;
 	const path = [ rootUrl, strDuration, siteSlug ].filter( Boolean ).join( '/' );
-	if ( queryString ) {
-		return `${ path }?${ queryString }`;
-	}
-	return path;
+
+	return addQueryArgs( urlQueryArgs, path );
 }
 
 /**
@@ -540,28 +537,26 @@ export function getPathToSelector(
  * points to the Details page.
  *
  * @param {string} rootUrl Base URL that relates to the current flow (WordPress.com vs Jetpack Connect).
+ * @param {QueryArgs} urlQueryArgs URL query params appended to url (ie. for affiliate tracking, or whatever), or {} if none.
  * @param {string} productSlug Slug of the product
  * @param {Duration} duration Monthly or annual
  * @param {string} siteSlug (optional) The slug of the selected site
- * @param {string} queryString (optional) Additional query params appended to url (ie. for affiliate tracking)
  *
  * @returns {string} The path to the Details page
  */
 export function getPathToDetails(
 	rootUrl: string,
+	urlQueryArgs: QueryArgs,
 	productSlug: string,
 	duration: Duration,
-	siteSlug?: string,
-	queryString?: string
+	siteSlug?: string
 ) {
 	const strDuration = durationToString( duration );
 	const path = [ rootUrl, productSlug, strDuration, 'details', siteSlug ]
 		.filter( Boolean )
 		.join( '/' );
-	if ( queryString ) {
-		return `${ path }?${ queryString }`;
-	}
-	return path;
+
+	return addQueryArgs( urlQueryArgs, path );
 }
 
 /**
@@ -569,28 +564,26 @@ export function getPathToDetails(
  * points to the Upsell page.
  *
  * @param {string} rootUrl Base URL that relates to the current flow (WordPress.com vs Jetpack Connect).
+ * @param {QueryArgs} urlQueryArgs URL query params appended to url (ie. for affiliate tracking, or whatever), or {} if none.
  * @param {string} productSlug Slug of the product
  * @param {Duration} duration Monthly or annual
  * @param {string} siteSlug (optional) The slug of the selected site
- * @param {string} queryString (optional) Additional query params appended to url (ie. for affiliate tracking)
  *
  * @returns {string} The path to the Upsell page
  */
 export function getPathToUpsell(
 	rootUrl: string,
+	urlQueryArgs: QueryArgs,
 	productSlug: string,
 	duration: Duration,
-	siteSlug?: string,
-	queryString?: string
+	siteSlug?: string
 ) {
 	const strDuration = durationToString( duration );
 	const path = [ rootUrl, productSlug, strDuration, 'additions', siteSlug ]
 		.filter( Boolean )
 		.join( '/' );
-	if ( queryString ) {
-		return `${ path }?${ queryString }`;
-	}
-	return path;
+
+	return addQueryArgs( urlQueryArgs, path );
 }
 
 /**

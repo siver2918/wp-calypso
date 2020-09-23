@@ -44,7 +44,7 @@ import './style.scss';
 const SelectorPage = ( {
 	defaultDuration = TERM_ANNUALLY,
 	rootUrl,
-	queryString,
+	urlQueryArgs,
 	header,
 	footer,
 }: SelectorPageProps ) => {
@@ -72,12 +72,12 @@ const SelectorPage = ( {
 		}
 
 		if ( purchase && isUpgradeableToYearly ) {
-			checkout( siteSlug, getYearlyPlanByMonthly( product.productSlug ), queryString );
+			checkout( siteSlug, getYearlyPlanByMonthly( product.productSlug ), urlQueryArgs );
 			return;
 		}
 
 		if ( purchase ) {
-			page( managePurchase( siteSlug, purchase.id, queryString ) );
+			page( managePurchase( siteSlug, purchase.id ) );
 			return;
 		}
 
@@ -90,18 +90,18 @@ const SelectorPage = ( {
 				} )
 			);
 			page(
-				getPathToDetails( rootUrl, product.productSlug, currentDuration, siteSlug, queryString )
+				getPathToDetails( rootUrl, urlQueryArgs, product.productSlug, currentDuration, siteSlug )
 			);
 			return;
 		}
 
 		if ( hasUpsell( product.productSlug as ProductSlug ) ) {
 			page(
-				getPathToUpsell( rootUrl, product.productSlug, currentDuration, siteSlug, queryString )
+				getPathToUpsell( rootUrl, urlQueryArgs, product.productSlug, currentDuration, siteSlug )
 			);
 			return;
 		}
-		checkout( siteSlug, product.productSlug, queryString );
+		checkout( siteSlug, product.productSlug, urlQueryArgs );
 	};
 
 	const trackProductTypeChange = ( selectedType: ProductType ) => {
@@ -170,7 +170,7 @@ const SelectorPage = ( {
 			{ showJetpackFreeCard && (
 				<>
 					<div className="selector__divider" />
-					<JetpackFreeCard />
+					<JetpackFreeCard urlQueryArgs={ urlQueryArgs } />
 				</>
 			) }
 

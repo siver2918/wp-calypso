@@ -12,21 +12,23 @@ import UpsellPage from './upsell';
 import { stringToDuration } from './utils';
 import getCurrentPlanTerm from 'state/selectors/get-current-plan-term';
 import { getSelectedSiteId } from 'state/ui/selectors';
-import { Duration } from 'my-sites/plans-v2/types';
+import { Duration, QueryArgs } from 'my-sites/plans-v2/types';
 import { TERM_ANNUALLY } from 'lib/plans/constants';
 
 export const productSelect = ( rootUrl: string ) => ( context: PageJS.Context, next: Function ) => {
 	// Get the selected site's current plan term, and set it as default duration
 	const state = context.store.getState();
 	const siteId = getSelectedSiteId( state );
-	const duration =
-		( siteId && ( getCurrentPlanTerm( state, siteId ) as Duration ) ) || TERM_ANNUALLY;
-	const queryString = context.querystring;
+	const duration: Duration =
+		( siteId && ( getCurrentPlanTerm( state, siteId ) as Duration ) ) ||
+		( TERM_ANNUALLY as Duration );
+	const urlQueryArgs: QueryArgs = context.query;
+
 	context.primary = (
 		<SelectorPage
 			defaultDuration={ duration }
 			rootUrl={ rootUrl }
-			queryString={ queryString }
+			urlQueryArgs={ urlQueryArgs }
 			header={ context.header }
 			footer={ context.footer }
 		/>
@@ -39,14 +41,15 @@ export const productDetails = ( rootUrl: string ) => (
 	next: Function
 ) => {
 	const productType: string = context.params.product;
-	const duration = stringToDuration( context.params.duration ) || TERM_ANNUALLY;
-	const queryString = context.querystring;
+	const duration: Duration = stringToDuration( context.params.duration ) || TERM_ANNUALLY;
+	const urlQueryArgs: QueryArgs = context.query;
+
 	context.primary = (
 		<DetailsPage
 			productSlug={ productType }
 			duration={ duration }
-			queryString={ queryString }
 			rootUrl={ rootUrl }
+			urlQueryArgs={ urlQueryArgs }
 			header={ context.header }
 		/>
 	);
@@ -55,14 +58,14 @@ export const productDetails = ( rootUrl: string ) => (
 
 export const productUpsell = ( rootUrl: string ) => ( context: PageJS.Context, next: Function ) => {
 	const productSlug: string = context.params.product;
-	const duration = stringToDuration( context.params.duration ) || TERM_ANNUALLY;
-	const queryString = context.querystring;
+	const duration: Duration = stringToDuration( context.params.duration ) || TERM_ANNUALLY;
+	const urlQueryArgs: QueryArgs = context.query;
 	context.primary = (
 		<UpsellPage
 			productSlug={ productSlug }
 			duration={ duration }
-			queryString={ queryString }
 			rootUrl={ rootUrl }
+			urlQueryArgs={ urlQueryArgs }
 			header={ context.header }
 		/>
 	);
