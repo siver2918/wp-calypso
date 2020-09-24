@@ -101,7 +101,9 @@ const DetailsPage = ( {
 				duration: newDuration,
 			} )
 		);
-		page( getPathToDetails( rootUrl, newProductSlug as string, newDuration, siteSlug ) );
+		page(
+			getPathToDetails( rootUrl, urlQueryArgs, newProductSlug as string, newDuration, siteSlug )
+		);
 	};
 
 	const { shortName } = product;
