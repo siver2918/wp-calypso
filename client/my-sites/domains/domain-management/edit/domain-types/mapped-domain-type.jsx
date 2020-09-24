@@ -13,7 +13,6 @@ import { Card } from '@automattic/components';
 import { withLocalizedMoment } from 'components/localized-moment';
 import DomainStatus from '../card/domain-status';
 import { isExpiringSoon } from 'lib/domains/utils';
-import SubscriptionSettings from '../card/subscription-settings';
 import { recordPaymentSettingsClick } from '../payment-settings-analytics';
 import { WPCOM_DEFAULTS } from 'lib/domains/nameservers';
 import AutoRenewToggle from 'me/purchases/manage-purchase/auto-renew-toggle';
@@ -216,7 +215,6 @@ class MappedDomainType extends React.Component {
 			isSiteAutomatedTransfer: this.props.isSiteAutomatedTransfer,
 		} );
 
-		const newStatusDesignAutoRenew = config.isEnabled( 'domains/new-status-design/auto-renew' );
 		const newDomainManagementNavigation = config.isEnabled(
 			'domains/new-status-design/new-options'
 		);
@@ -247,18 +245,7 @@ class MappedDomainType extends React.Component {
 				<Card compact={ true } className="domain-types__expiration-row">
 					<DomainExpiryOrRenewal { ...this.props } />
 					{ this.renderDefaultRenewButton() }
-					{ ! newStatusDesignAutoRenew && domain.subscriptionId && (
-						<WrapDomainStatusButtons>
-							<SubscriptionSettings
-								type={ domain.type }
-								compact={ true }
-								subscriptionId={ domain.subscriptionId }
-								siteSlug={ this.props.selectedSite.slug }
-								onClick={ this.handlePaymentSettingsClick }
-							/>
-						</WrapDomainStatusButtons>
-					) }
-					{ newStatusDesignAutoRenew && domain.currentUserCanManage && this.renderAutoRenew() }
+					{ domain.currentUserCanManage && this.renderAutoRenew() }
 				</Card>
 				{ newDomainManagementNavigation ? (
 					<DomainManagementNavigationEnhanced
