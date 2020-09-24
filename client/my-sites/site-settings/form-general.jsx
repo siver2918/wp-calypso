@@ -31,7 +31,6 @@ import { isBusiness } from 'lib/products-values';
 import { FEATURE_NO_BRANDING, PLAN_BUSINESS } from 'lib/plans/constants';
 import QuerySiteSettings from 'components/data/query-site-settings';
 import { isJetpackSite, isCurrentPlanPaid } from 'state/sites/selectors';
-import isSiteComingSoon from 'state/selectors/is-site-coming-soon';
 import { getSelectedSite, getSelectedSiteId, getSelectedSiteSlug } from 'state/ui/selectors';
 import guessTimezone from 'lib/i18n-utils/guess-timezone';
 import { preventWidows } from 'lib/formatting';
@@ -307,6 +306,9 @@ export class SiteSettingsFormGeneral extends Component {
 			return null;
 		}
 
+		// If we're currently coming soon, private shouldn't be able to be checked
+		const canBeChecked = parseInt( fields.wpcom_coming_soon, 10 ) !== 1;
+
 		return (
 			<Fragment>
 				<FormLabel className="site-settings__visibility-label is-private">
@@ -314,11 +316,11 @@ export class SiteSettingsFormGeneral extends Component {
 						label={ translate( 'Private' ) }
 						name="blog_public"
 						value={ Visibility.Private }
-						checked={ Visibility.Private === blogPublic }
+						checked={ canBeChecked && Visibility.Private === blogPublic }
 						onChange={ () =>
 							this.handleVisibilityOptionChange( {
 								blog_public: Visibility.Private,
-								wpcom_public_coming_soon: 0,
+								wpcom_coming_soon: 0,
 							} )
 						}
 						disabled={ isRequestingSettings }
@@ -345,7 +347,6 @@ export class SiteSettingsFormGeneral extends Component {
 		} = this.props;
 
 		const blogPublic = parseInt( fields.blog_public, 10 );
-		const isWpcomPublicComingSoonMode = parseInt( fields.wpcom_public_coming_soon, 10 ) === 1;
 		const isNonAtomicJetpackSite = siteIsJetpack && ! siteIsAtomic;
 
 		return (
@@ -359,13 +360,12 @@ export class SiteSettingsFormGeneral extends Component {
 								value={ Visibility.PublicIndexed }
 								checked={
 									blogPublic === Visibility.PublicNotIndexed ||
-									blogPublic === Visibility.PublicIndexed ||
-									isWpcomPublicComingSoonMode
+									blogPublic === Visibility.PublicIndexed
 								}
 								onChange={ () =>
 									this.handleVisibilityOptionChange( {
 										blog_public: Visibility.PublicIndexed,
-										wpcom_public_coming_soon: 0,
+										wpcom_coming_soon: 0,
 									} )
 								}
 								disabled={ isRequestingSettings }
@@ -381,7 +381,7 @@ export class SiteSettingsFormGeneral extends Component {
 					<FormInputCheckbox
 						name="blog_public"
 						value={ Visibility.PublicNotIndexed }
-						checked={ Visibility.PublicNotIndexed === blogPublic || isWpcomPublicComingSoonMode }
+						checked={ Visibility.PublicNotIndexed === blogPublic }
 						onChange={ () =>
 							this.handleVisibilityOptionChange( {
 								// Toggle blog_public
@@ -389,16 +389,7 @@ export class SiteSettingsFormGeneral extends Component {
 									blogPublic === Visibility.PublicNotIndexed
 										? Visibility.PublicIndexed
 										: Visibility.PublicNotIndexed,
-								// Toggle Coming soon off if noindexed is being removed, but leave coming soon off if its already off
-								wpcom_public_coming_soon:
-									// ComingSoon + PublicIndexed > PublicNotIndexed = 1,
-									// ComingSoon + PublicNotIndexed > PublicIndexed = 0,
-									// Not Coming Soon > Any = 0
-									// aka
-									// Not Coming Soon || PublicNotIndexed > 0, else 1
-									! isWpcomPublicComingSoonMode || blogPublic === Visibility.PublicNotIndexed
-										? 0
-										: 1,
+								wpcom_coming_soon: 0,
 							} )
 						}
 						disabled={ isRequestingSettings }
@@ -417,7 +408,14 @@ export class SiteSettingsFormGeneral extends Component {
 
 	privacyRadioComingSoon() {
 		const { fields, isRequestingSettings, eventTracker, translate } = this.props;
-		const isWpcomPublicComingSoonMode = parseInt( fields.wpcom_public_coming_soon, 10 ) === 1;
+		const wasComingSoon = parseInt( fields.was_wpcom_coming_soon, 10 ) === 1;
+		const isComingSoon = parseInt( fields.wpcom_coming_soon, 10 ) === 1;
+
+		// If v2 and not currently coming soon, hide
+		if ( config.isEnabled( 'coming-soon-v2' ) && ! wasComingSoon ) {
+			return null;
+		}
+		// else show
 		return (
 			<Fragment>
 				<FormFieldset>
@@ -425,12 +423,12 @@ export class SiteSettingsFormGeneral extends Component {
 						<FormRadio
 							label={ translate( 'Coming Soon' ) }
 							name="blog_public"
-							value={ Visibility.PublicNotIndexed }
-							checked={ isWpcomPublicComingSoonMode }
+							value={ Visibility.Private }
+							checked={ isComingSoon }
 							onChange={ () =>
 								this.handleVisibilityOptionChange( {
-									blog_public: Visibility.PublicNotIndexed,
-									wpcom_public_coming_soon: 1,
+									blog_public: Visibility.Private,
+									wpcom_coming_soon: 1,
 								} )
 							}
 							disabled={ isRequestingSettings }
@@ -447,11 +445,11 @@ export class SiteSettingsFormGeneral extends Component {
 		);
 	}
 
-	handleVisibilityOptionChange = ( { blog_public, wpcom_public_coming_soon } ) => {
+	handleVisibilityOptionChange = ( { blog_public, wpcom_coming_soon } ) => {
 		const { trackEvent, updateFields } = this.props;
 		trackEvent( `Set blog_public to ${ blog_public }` );
-		trackEvent( `Set wpcom_public_coming_soon to ${ wpcom_public_coming_soon }` );
-		updateFields( { blog_public, wpcom_public_coming_soon } );
+		trackEvent( `Set wpcom_coming_soon to ${ wpcom_coming_soon }` );
+		updateFields( { blog_public, wpcom_coming_soon } );
 	};
 
 	Timezone() {
@@ -553,7 +551,7 @@ export class SiteSettingsFormGeneral extends Component {
 				<Card>
 					<form>
 						<FormFieldset>
-							{ ! config.isEnabled( 'coming-soon-v2' ) && this.privacyRadioComingSoon() }
+							{ this.privacyRadioComingSoon() }
 							{ this.privacyRadioPublic() }
 							{ this.privacyRadioPrivate() }
 						</FormFieldset>
@@ -695,7 +693,6 @@ const connectComponent = connect(
 
 		return {
 			isUnlaunchedSite: isUnlaunchedSite( state, siteId ),
-			isSiteComingSoon: isSiteComingSoon( state, siteId ),
 			needsVerification: ! isCurrentUserEmailVerified( state ),
 			siteIsJetpack,
 			siteIsVip: isVipSite( state, siteId ),
@@ -718,7 +715,7 @@ const getFormSettings = ( settings ) => {
 		lang_id: '',
 		timezone_string: '',
 		blog_public: '',
-		wpcom_public_coming_soon: '',
+		wpcom_coming_soon: '',
 		admin_url: '',
 	};
 
@@ -729,13 +726,13 @@ const getFormSettings = ( settings ) => {
 	const formSettings = {
 		blogname: settings.blogname,
 		blogdescription: settings.blogdescription,
-
 		lang_id: settings.lang_id,
 		blog_public: settings.blog_public,
 		timezone_string: settings.timezone_string,
 	};
 
-	formSettings.wpcom_public_coming_soon = settings.wpcom_public_coming_soon;
+	formSettings.wpcom_coming_soon = settings.wpcom_coming_soon;
+	formSettings.was_wpcom_coming_soon = settings.wpcom_coming_soon;
 
 	// handling `gmt_offset` and `timezone_string` values
 	const gmt_offset = settings.gmt_offset;
