@@ -106,7 +106,6 @@ export function generateSteps( {
 			props: {
 				isDomainOnly: false,
 				showExampleSuggestions: false,
-				shouldShowDomainTestCopy: false,
 				includeWordPressDotCom: false,
 				showSkipButton: true,
 				headerText: i18n.translate( 'Getting ready to launch, pick a domain' ),
@@ -328,7 +327,6 @@ export function generateSteps( {
 			providesDependencies: [ 'siteId', 'siteSlug', 'domainItem' ],
 			props: {
 				isDomainOnly: true,
-				shouldShowDomainTestCopy: false,
 				forceHideFreeDomainExplainer: true,
 			},
 		},
@@ -339,7 +337,6 @@ export function generateSteps( {
 			props: {
 				isAllDomains: true,
 				isDomainOnly: true,
-				shouldShowDomainTestCopy: false,
 				forceHideFreeDomainExplainer: true,
 			},
 		},
