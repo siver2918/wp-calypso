@@ -10,7 +10,8 @@
 		"clean": "npx rimraf dist \"../../.tsc-cache/packages__composite-checkout*\"",
 		"prepare": "tsc --project ./tsconfig.json && tsc --project ./tsconfig-cjs.json",
 		"prepublish": "yarn run clean",
-		"watch": "tsc --project ./tsconfig.json --watch"
+		"watch": "tsc --project ./tsconfig.json --watch",
+		"build:docs": "node bin/build-docs.js"
 	},
 	"files": [
 		"dist",
@@ -51,5 +52,9 @@
 		"@wordpress/data": "^4.22",
 		"react": "^16.8"
 	},
-	"private": true
+	"private": true,
+	"devDependencies": {
+		"@types/node": "^14.11.2",
+		"node-plantuml": "^0.9.0"
+	}
 }

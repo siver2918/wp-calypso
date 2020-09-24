@@ -1,0 +1,55 @@
+@startuml
+skinparam ParticipantPadding 5
+skinparam BoxPadding 5
+box #facfd2
+  participant Database
+end box
+box "WordPress.com" #f7dcc6
+  participant Store_Shopping_Cart
+  participant WPCOM_JSON_API_Me_Shopping_Cart_Endpoint
+end box
+box "Calypso" #f5e6b3
+  participant Undocumented
+end box
+box "Composite Checkout" #b8e6bf
+  participant useInitializeCartFromServer
+  participant useShoppingCartManager
+  participant CompositeCheckout
+  participant useShoppingCartReducer
+end box
+
+Undocumented -> CompositeCheckout : import getCart
+CompositeCheckout -> useShoppingCartManager : cartKey, getCart
+note over useShoppingCartManager : getCart bound to cartKey
+useShoppingCartManager -> useInitializeCartFromServer : getCart
+useInitializeCartFromServer -> Undocumented : << getCart >>
+activate Undocumented
+Undocumented -> WPCOM_JSON_API_Me_Shopping_Cart_Endpoint : /me/shopping-cart/{cartKey}
+activate WPCOM_JSON_API_Me_Shopping_Cart_Endpoint
+note over WPCOM_JSON_API_Me_Shopping_Cart_Endpoint : $cart_key
+WPCOM_JSON_API_Me_Shopping_Cart_Endpoint -> Store_Shopping_Cart
+activate Store_Shopping_Cart
+note over Store_Shopping_Cart : 'shopping_cart_' . $cart_key
+Store_Shopping_Cart -> Database : wp_user_attributes.meta_key
+activate Database
+return meta_value
+return ->to_js_cart()
+return
+return
+useInitializeCartFromServer -> useShoppingCartReducer : dispatch RECEIVE_INITIAL_RESPONSE_CART
+note over useInitializeCartFromServer : event CART_INIT_COMPLETE
+note over useShoppingCartReducer
+  Moves the payload to .responseCart
+  updates .couponStatus,
+  and sets .cacheStatus to 'valid'
+end note
+useShoppingCartReducer -> useShoppingCartManager : responseCart, couponStatus, cacheStatus
+note over useShoppingCartManager
+  cacheStatus =>
+    isLoading
+    loadingError
+    isPendingUpdate
+end note
+useShoppingCartManager -> CompositeCheckout
+note over CompositeCheckout: render
+@enduml
