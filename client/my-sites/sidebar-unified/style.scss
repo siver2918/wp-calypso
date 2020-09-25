@@ -26,6 +26,7 @@ $font-size: rem( 14px );
 	// client/layout/sidebar/style.scss
 	.sidebar {
 		background-color: var( --color-sidebar-background );
+		padding-bottom: 12px;
 
 		.sidebar__separator {
 			margin: 0 0 11px;
@@ -119,6 +120,11 @@ $font-size: rem( 14px );
 		.selected .sidebar__menu-link:hover {
 			background-color: var( --color-sidebar-menu-selected-background );
 		}
+	}
+
+	&.is-sidebar-collapsed {
+		--sidebar-width-max: 36px;
+		--sidebar-width-min: 36px;
 	}
 
 	//client/my-sites/current-site/style.scss
