@@ -5,6 +5,7 @@ const { ipcMain: ipc } = require( 'electron' ); // eslint-disable-line import/no
 const https = require( 'https' ); // eslint-disable-line import/no-nodejs-modules
 const url = require( 'url' );
 const events = require( 'events' );
+const log = require( 'desktop/lib/logger' )( 'cookie-auth' );
 
 /**
  * Module variables
@@ -99,6 +100,7 @@ function auth( window, onAuthorized ) {
 	let currentRequest;
 
 	ipc.on( 'user-auth', function ( event, user, token ) {
+		log.info( 'Authorized user with token: ', token );
 		if ( user && user.data ) {
 			const userData = user.data;
 			if ( currentRequest && currentRequest.username === userData.username ) {
