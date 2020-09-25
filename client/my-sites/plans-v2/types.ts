@@ -36,19 +36,16 @@ interface BasePageProps {
 
 export interface SelectorPageProps extends BasePageProps {
 	defaultDuration?: Duration;
-	queryString?: string;
 }
 
 export interface DetailsPageProps extends BasePageProps {
 	duration?: Duration;
 	productSlug: string;
-	queryString?: string;
 }
 
 export interface UpsellPageProps extends BasePageProps {
 	duration?: Duration;
 	productSlug: string;
-	queryString?: string;
 }
 
 export interface WithRedirectToSelectorProps extends BasePageProps {
