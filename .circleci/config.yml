@@ -667,7 +667,7 @@ jobs:
           name: Install Linux deps
           command: |
             sudo apt update
-            sudo apt-get install -y git-restore-mtime bc libsecret-1-dev
+            sudo apt-get install -y git-restore-mtime bc
       - run:
           name: Restore file modified time
           command: |
@@ -792,6 +792,11 @@ jobs:
       - attach_workspace:
           at: ~/wp-calypso
       - run: *update-node
+      - run:
+          name: Install Linux deps
+          command: |
+            sudo apt update
+            sudo apt-get install -y libsecret-1-dev
       - run: *desktop-install-app-deps
       - run:
           name: Build Desktop Linux

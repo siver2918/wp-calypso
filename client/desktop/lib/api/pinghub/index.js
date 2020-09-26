@@ -6,7 +6,7 @@ const WebSocket = require( 'ws' );
 /*
  * Internal dependencies
  */
-const keychain = require( 'desktop/lib/keychain ' );
+const keychain = require( 'desktop/lib/keychain' );
 const log = require( 'desktop/lib/logger' )( 'api:pinghub' );
 const { OAUTH_TOKEN } = require( 'desktop/lib/keychain/keys' );
 

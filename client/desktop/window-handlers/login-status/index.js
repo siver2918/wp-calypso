@@ -9,6 +9,8 @@ const { app, ipcMain: ipc } = require( 'electron' ); // eslint-disable-line impo
 const menu = require( 'desktop/lib/menu' );
 const platform = require( 'desktop/lib/platform' );
 const state = require( 'desktop/lib/state' );
+const Pinghub = require( 'desktop/lib/api/pinghub' );
+const keychain = require( 'desktop/lib/keychain' );
 
 module.exports = function ( mainWindow ) {
 	menu.set( app, mainWindow );
@@ -19,6 +21,8 @@ module.exports = function ( mainWindow ) {
 			platform.setDockMenu( true );
 			state.login();
 		} else {
+			Pinghub.disconnect();
+			keychain.clear();
 			menu.disableLoggedInItems( app, mainWindow );
 			platform.setDockMenu( false );
 			state.logout();

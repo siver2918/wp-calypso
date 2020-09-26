@@ -5,12 +5,19 @@ const { ipcMain: ipc } = require( 'electron' ); // eslint-disable-line import/no
 const https = require( 'https' ); // eslint-disable-line import/no-nodejs-modules
 const url = require( 'url' );
 const events = require( 'events' );
-const log = require( 'desktop/lib/logger' )( 'cookie-auth' );
+
+/**
+ * Internal dependencies
+ */
+const Pinghub = require( 'desktop/lib/api/pinghub' );
+const keychain = require( 'desktop/lib/keychain' );
+const { OAUTH_TOKEN } = require( 'desktop/lib/keychain/keys' );
 
 /**
  * Module variables
  */
 const noop = function () {};
+const log = require( 'desktop/lib/logger' )( 'cookie-auth' );
 
 function authorize( username, token ) {
 	const responder = new events.EventEmitter();
@@ -99,8 +106,14 @@ function setSessionCookies( window, onComplete ) {
 function auth( window, onAuthorized ) {
 	let currentRequest;
 
-	ipc.on( 'user-auth', function ( event, user, token ) {
-		log.info( 'Authorized user with token: ', token );
+	ipc.on( 'user-auth', async function ( event, user, token ) {
+		try {
+			await keychain.set( OAUTH_TOKEN, token );
+			Pinghub.connect();
+		} catch ( e ) {
+			log.error( 'Failed to write user token to keychain: ', e );
+		}
+
 		if ( user && user.data ) {
 			const userData = user.data;
 			if ( currentRequest && currentRequest.username === userData.username ) {

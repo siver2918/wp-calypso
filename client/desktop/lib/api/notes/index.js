@@ -2,7 +2,7 @@
  * Internal dependencies
  */
 const handler = require( 'wpcom-xhr-request' );
-const keychain = require( 'desktop/lib/keychain ' );
+const keychain = require( 'desktop/lib/keychain' );
 const { OAUTH_TOKEN } = require( 'desktop/lib/keychain/keys' );
 
 const promiseTimeout = function ( ms, promise ) {
